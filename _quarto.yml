@@ -1,0 +1,59 @@
+project:
+  title: "Quarto - Template" # É interessante mudar o nome do projeto para gestão de conhecimento
+  output-dir: resultados/
+
+
+lang: pt-BR
+
+format: 
+  pdf:
+    geometry: 
+      - left=3cm 
+      - right=2cm 
+      - top=3cm 
+      - bottom=2cm 
+    documentclass: estat/estat
+    toc: true
+    toc-title: "Sumário"
+    mainfont: Arial 
+    
+    linkcolor: black 
+    filecolor: black
+    citecolor: black
+    urlcolor: black 
+    number-sections: true
+    
+    fig-width: 6.2
+    fig-height: 3.66
+
+
+crossref: 
+  fig-title: Figura
+  fig-prefix: ""
+  tbl-title: Tabela
+  tbl-prefix: ""
+  title-delim: ":"
+
+execute: 
+  message: false
+  warning: false
+  echo: false
+  error: false
+  quiet: true
+  
+
+  
+    
+
+include-in-header:
+  - file: arquivos_tex/nome_dos_alocados_e_do_cliente.tex # Arrumando para adicionar os autores e o cliente
+  - file: arquivos_tex/outros_detalhes.tex
+
+include-before-body: 
+  - file: arquivos_tex/logo.tex
+  
+
+
+
+editor: visual
+
