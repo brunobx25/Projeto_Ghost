@@ -1,34 +1,84 @@
 ---
-title: "Modelo Projeto - Quarto"
+title: "Projeto - Fantasma"
 
 # Nome do documento PDF gerado
-output-file: titulo do projeto
+output-file: projeto fantasma
 ---
-```{r}
+
+```{r source, cache=TRUE}
 #| include: false
 source("rdocs/source/packages.R")
 ```
-
-```{r}
-# Rodar apenas uma vez na vida!
-## Instalando o tinytex(pacote apenas)
-### CRAN version
-install.packages('tinytex')
-
-### or the development version on GitHub
-remotes::install_github('rstudio/tinytex')
-
-## Baixando o tinytex
-library(tinytex)
-tinytex::install_tinytex()
-```
-
-
 
 # Introdução
 
 # Referencial Teórico
 
 # Análises
+
+## Top 5 países com mais medalhistas femininas
+
+A partir do acesso ao banco de dados disponibilizado pela "House of Excellence", tivemos acesso aos dados de todos os atletas que participaram das olimpíadas de 2000 até 2016. Nesse cenário, com o intuito de produzir um ranqueamento das cinco delegações que obtiveram mais conquistas nesse período nas modalidades femininas, do banco de dados original, foram utilizadas as variáveis de sexo("Gender"), a qual era dividida entre Feminino("F") e Masculino("M"), ainda foi utilizada a variável que descrevia qual país era a origem do atleta, sendo a base para agrupar as conquistas, e por último a que evidenciava qual medalha havia sido conquistada.
+
+![Gráfico de barras da Top 5 delegações](images/colunas-freq-medalhas-01.png){#fig-medalhas fig-align="center"}
+
+Tendo a @fig-medalhas como referência podemos analisar que os Estados Unidos lideram a lista com 741 medalhas, seguidos da delegação russa com 416 - o que representa uma diferença de 325 conquistas entre o primeiro e o segundo colocado - em terceiro colocado está a China com 384, a Austrália na quarta posição com 340 e fechando o ranqueamento a Alemanha com 268.
+
+![Gráfico de barras da proporção entre as delegações dentro e fora do Top 5](colunas-prop-medalha.png){#fig-prop fig-align="center" width="158mm"}
+
+::: {#tbl-tex layout-align="center" tbl-pos="H"}
+\begin{tabular}{l|r|r}
+\hline
+\multicolumn{1}{l|}{\textbf{Países}} & \multicolumn{1}{r|}{\textbf{Nº de medalhas}} & \multicolumn{1}{l}{\textbf{Proporção(\%)}} \\  \hline
+Estados Unidos    & 741 & 16,11\% \\
+Rússia            & 416 & 9,05\% \\
+China             & 384 & 8,35\% \\
+Austrália         & 340 & 7,40\% \\
+Alemanha          & 268 & 5,83\% \\
+Demais            & 2448 & 53,25\% \\ \hline
+\textbf{Total} & 4597 & 100\% \\ \hline
+\end{tabular}
+
+Top 5 países com mais medalhistas olímpicas femininas
+:::
+
+Através da @tbl-tex evidencia-se que dentre as modalidades femininas, durante os anos de 2000 a 2016 considerando todas os pódios sem distinção entre ouro, prata e bronze, totalizam-se 4597 conquistas. Dado o interesse da "House of Excelence" em entender o cenário das conquistas olímpicas, foi contruída uma análise da proporção dessas medalhas em relação ao total de medalhas femininas. Assim por meio da @fig-prop e da @tbl-tex, no "Top 5" percebe-se que os Estados Unidos detém o topo do quadro de medalhas com 16,1%, seguido da Rússia que contém 9% , a China em terceiro com 8,4%, a Austrália na quarta posição com 7,4% e fechando o ranqueamento a Alemanha com (5,8%).
+
+![Gráfico de setor da proporção entre as delegações dentro e fora do Top 5](setor_paises.png){#fig-setor fig-pos="H" fig-align="center" width="158mm"}
+
+Para mais, a fim de esclarecer como os melhores países se comparam aos demais, diante da @fig-prop e da @fig-setor fora contabilizado o total de medalhas das delagações fora do "Top 5", totalizando 2448 pódios, o que representa 53,25% do todo. Nesse cenário, nota-se que os cinco países com melhor perfomance nos jogos possuem 2149 medalhas, o que condiz a 46,75% de todas as conquistas.
+
+## IMC por Esporte
+
+Diante do banco de dados, obtivemos acesso ao peso dos atletas em libras(lbs) e suas respectivas alturas em metros(m), tendo isso calculamos o Índice de Massa Corporal(IMC ) de cada um dos atletas para, assim, realizar as análises. Ainda, vale ressaltar que pelo interesse de observar como os valores de IMC se distribuem, agrupou-se os dados em relação aos Esportes de interesse e homens e mulheres nesse primeiro momento foram agrupados igualmente, conforme suas categorias olímpicas - Atletismo, Badminton, Futebol, Ginástica, Judô.
+
+::: {#tbl-medidas layout-align="center" tbl-pos="H"}
+\begin{tabular}{ | l |
+        S[table-format = 2.2]
+        S[table-format = 1.2]
+        S[table-format = 2.2]
+        S[table-format = 2.2]
+        S[table-format = 2.2]
+        |}
+\toprule
+    \textbf{Estatística} & \textbf{Atletismo} & \textbf{Badminton} & \textbf{Futebol} & \textbf{Ginástica} & \textbf{Judô} \\
+    \midrule
+    Média & 22.30 & 22.21 & 22.51 & 20.68 & 25.70 \\
+    Desvio Padrão & 3.86 & 1.50 & 1.73 & 2.38 & 5.12 \\
+    Variância & 14.92 &  2.26 &  2.99 &  5.67 & 26.23 \\
+    Mínimo & 15.82 & 18.94 & 16.73 & 15.16 & 18.52 \\
+    1º Quartil & 20.03 & 21.22 & 21.34 & 18.61 & 22.06 \\
+    Mediana & 21.45 & 22.28 & 22.49 & 21.09 & 24.68 \\
+    3º Quartil & 23.67 & 23.21 & 23.71 & 22.48 & 27.70 \\
+    Máximo & 44.38 & 26.73 & 29.07 & 26.45 & 56.50 \\
+\bottomrule
+\end{tabular}
+
+Medidas resumo do IMC por esportes
+:::
+
+A partir da @tbl-medidas podemos observar que o Judô possui maior média de IMC (25,70) entre os esportes e por outro lado, a Ginástica tem a menor media (20,68) dentre eles. Além disso, consegue-se perceber que o Badminton possui o maior valor mínimo de IMC (18,94) e a Ginástica o menor (15,16). Já no quesito de maior valor do índice de massa corporal está o Judô (56,50) e a Ginástica com o menor novamente (26,45).
+
+Outrossim, observando os valores de 1º Quartil, 3º Quartil, Mediana, Variância e Desvio Padrão, nota-se que o Badminton e Futebol possuem valores de IMC mais concentrados entre os primeiro e terceiro quartil, além de estarem mais próximos da média. Ainda, percebe-se que para ambos os Esportes suas medianas, no caso do Badminton (22,28) e do Futebol (22,49) são também próximos da média, evidenciando a concentração dos valores em relação ao valor médio. Sob outra perspectiva, o Judô é a modalidade que o valores estão mais dispersos na amostra, o que pode ser percebido pelo maior desvio padrão entre as modalidades (5,12), assim como a variância (26,23), bem como sua distância inter-quartílica ser a maior entre os demais, porém podemos perceber, da mesma forma como os outros esportes, a maior quantidade dos resultados de IMC estão conentrados entre o primeiro e terceiro quartil da amostra.
 
 # Conclusões

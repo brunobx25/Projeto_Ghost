@@ -3,7 +3,7 @@ project:
   output-dir: resultados/
 
 
-lang: pt-BR
+lang: pt
 
 format: 
   pdf:
@@ -26,6 +26,7 @@ format:
     fig-width: 6.2
     fig-height: 3.66
 
+    fig-cap-location: top
 
 crossref: 
   fig-title: Figura
