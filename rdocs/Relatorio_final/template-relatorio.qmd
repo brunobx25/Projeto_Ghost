@@ -7,7 +7,7 @@ output-file: projeto fantasma
 
 ```{r source, cache=TRUE}
 #| include: false
-source("rdocs/source/packages.R")
+source("C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/rdocs/source/packages.R")
 ```
 
 # Introdução
@@ -202,13 +202,13 @@ A porção inferior do retângulo diz respeito ao primeiro quartil, enquanto a s
 
 O histograma é uma representação gráfica utilizada para a visualização da distribuição dos dados e pode ser construído por valores absolutos, frequência relativa ou densidade. A figura abaixo ilustra um exemplo de histograma.
 
-![Exemplo de histograma](images/hist_uni.png){fig-align="center"}
+![Exemplo de histograma](images/hist_uni.png){fig-align="center" width="158mm"}
 
 ## Gráfico de Dispersão
 
 O gráfico de dispersão é uma representação gráfica utilizada para ilustrar o comportamento conjunto de duas variáveis quantitativas. A figura abaixo ilustra um exemplo de gráfico de dispersão, onde cada ponto representa uma observação do banco de dados.
 
-![Exemplo de Gráfico de Dispersão](images/disp_uni.png){fig-align="center"}
+![Exemplo de Gráfico de Dispersão](images/disp_uni.png){fig-align="center" width="158mm"}
 
 ## Tipos de Variáveis
 
@@ -232,13 +232,13 @@ As variáveis quantitativas são as variáveis numéricas, que representam carac
 
 A partir do acesso ao banco de dados disponibilizado pela "House of Excellence", tivemos acesso aos dados de todos os atletas que participaram das olimpíadas de 2000 até 2016. Nesse cenário, com o intuito de produzir um ranqueamento das cinco delegações que obtiveram mais conquistas nesse período nas modalidades femininas, do banco de dados original, foram utilizadas as variáveis de sexo("Gender"), a qual era dividida entre Feminino ("F") e Masculino ("M"), ainda foi utilizada a variável que descrevia qual país era a origem do atleta, sendo a base para agrupar as conquistas, e por último a que evidenciava qual medalha havia sido conquistada.
 
-![Gráfico de colunas do total de conquistas de cada delegação do Top 5](colunas-prop-medalha.png){#fig-prop fig-align="center" width="158mm"}
+![Gráfico de colunas do total de conquistas de cada delegação do Top 5](images/colunas-prop-medalha.png){#fig-prop fig-align="center" width="158mm"}
 
 Tendo a @fig-prop como referência podemos analisar que os Estados Unidos lideram a lista com 741 medalhas, seguidos da delegação russa com 416 - o que representa uma diferença de 325 conquistas entre o primeiro e o segundo colocado - em terceiro colocado está a China com 384, a Austrália na quarta posição com 340 e fechando o ranqueamento a Alemanha com 268, distanciando-se do penúltimo colocado por 72 medalhas e em relação ao primeiro são 473 - valor maior que as conquistas da Rússia que ocupa o segundo lugar.
 
 Através da análise dos dados evidencia-se que dentre as modalidades femininas, durante os anos de 2000 a 2016 considerando todas os pódios sem distinção entre ouro, prata e bronze, totalizam-se 4597 conquistas. Dado o interesse da "House of Excelence" em entender o cenário das conquistas olímpicas, foi contruída uma análise da frequência dessas medalhas em relação ao total de medalhas femininas. Assim por meio da @fig-prop, no "Top 5" percebe-se que os Estados Unidos detém o topo do quadro de medalhas com 16,12%, seguido da Rússia que contém 9,05% , a China em terceiro com 8,,35%, a Austrália na quarta posição com 7,4% e fechando o ranqueamento a Alemanha com 5,83%.
 
-![Gráfico de setor da frequência de conquistas entre as delegações dentro e fora do Top 5](setor_paises.png){#fig-setor fig-pos="H" fig-align="center" width="158mm"}
+![Gráfico de setor da frequência de conquistas entre as delegações dentro e fora do Top 5](images/setor_paises.png){#fig-setor fig-pos="H" fig-align="center" width="158mm"}
 
 Para mais, a fim de esclarecer como os melhores países se comparam aos demais, diante da @fig-prop e da @fig-setor analisa-se que as delagações fora do "Top 5", totalizam 2448 pódios, o que representa 53,25% do todo. Nesse cenário, nota-se que os cinco países com melhor perfomance nos jogos possuem 2149 medalhas, o que condiz a 46,75% de todas as conquistas.
 
@@ -246,11 +246,11 @@ Para mais, a fim de esclarecer como os melhores países se comparam aos demais, 
 
 Diante do banco de dados, obtivemos acesso às variáveis quantitativas contínuas que descrevem o peso dos atletas em libras (lbs) e suas respectivas alturas em metros (m), tendo isso calculamos o Índice de Massa Corporal (IMC) de cada um dos atletas, atribuindo uma nova variável ao banco que também é classificada como quantitativa contínua, para, assim, realizar as análises, além disso, durante os cálculos 22 atletas não tiveram ou suas alturas ou seus pesos computados no banco de dados e por isso foram retirados da variável que contabiliza todos os IMC's. Ainda, vale ressaltar que pelo interesse de observar como os valores de IMC se distribuem, agrupou-se os dados em relação aos Esportes de interesse, que são identificados como variável qualitativa nominal, a qual não tem distinção de ordem dentro da categoria, além disso, tanto homens, quanto mulheres, nesse primeiro momento, foram agrupados igualmente, conforme suas categorias olímpicas - Atletismo, Badminton, Futebol, Ginástica, Judô. Posteriormente, terão análises específicas para o feminino e masculino, mantendo os mesmos esportes de interesse, ressaltando que o sexo também é uma uma variável qualitativa nominal.
 
-![Boxplot explicativo sobre seus elementos](images/box_uni.png){#fig-e-box-expli width="158mm"}
+![Boxplot explicativo sobre seus elementos](images/box_uni.png){#fig-e-box-expli fig-align="center" width="158mm"}
 
 Para analisar os dados obtidos utilizaremos *boxplots* como forma de visualização das informações e por meio da @fig-e-box-expli apresenta-se o padrão e estruturação deles.
 
-![Boxplot dos esportes de interesse pelo IMC](box_bi.png){#fig-boxplot fig-align="center" fig-pos="H" width="158mm"}
+![Boxplot dos esportes de interesse pelo IMC](images/box_bi.png){#fig-boxplot fig-pos="H" fig-align="center" width="158mm"}
 
 ::: {#tbl-medidas layout-align="center" tbl-pos="H"}
 \begin{tabular}{ | l |
@@ -303,7 +303,7 @@ Com a @tbl-tex podemos comprovar o que havia sido analisado outrora, dentre os d
 
 Dada a consideração de homens e mulheres sem distinção feita anteriormente, agora abordaremos os resultados para cada gênero específico, uma vez que, anteriormente, tinhamos um panorama geral, e neste momento teremos análises mais específicas visando mais eficiência para os atletas da consultoria esportiva.
 
-![Boxplot dos esportes de interesse pelo IMC das atletas femininas](box_bi_fem.png){#fig-box-fem fig-align="center" width="158mm"}
+![Boxplot dos esportes de interesse pelo IMC das atletas femininas](images/box_bi_fem.png){#fig-box-fem fig-align="center" width="158mm"}
 
 ::: {#tbl-medidasfem layout-align="center" tbl-pos="H"}
 \begin{tabular}{ | l |
@@ -330,12 +330,11 @@ Dada a consideração de homens e mulheres sem distinção feita anteriormente, 
 Medidas resumo do IMC das atletas femininas dos esportes de interesse
 :::
 
-
 Antes de analisar os resultados femininos, vale ressaltar que 8 atletas não haviam os valores necessários no banco de dados para o cálculo do IMC. Assim, através da @fig-box-fem e da @tbl-medidasfem, percebe-se que da mesma forma que a análise generalizada dos gêneros, o esporte com maior média de IMC foi o Judô (24,45), distanciando 2,64 do segundo maior que é o Futebol (21,81), assim como o geral, da mesma forma o Judô também possui a maior mediana com 22,72, 0,93 a mais que Futebol que ocupa assim como no geral o segundo maior valor de mediana, porém outrora a ditancia era de 2,19, e a Ginástica possui a menor média também (18,73), entretanto, nas mulheres, o segundo menor valor de média é do Atletismo - outrora era do Badminton - com 21,19, uma diferença de 2,46 - distancia maior que no geral, que era de 1,53 entre os dois menores IMC's médios - já no caso da mediana a Ginástica possui o menor valor (18,50), 2,06 a menos que o Atletismo (20,56), esses dois esportes antes estavam distantes por 0,36 e também eram os menores valores de mediana.
 
 Ademais, observa-se, nos valores mínimos, que as análises femininas são as mesmas do caso geral, o que nos mostra que os valores de mínimo de todos os esportes desconsiderando gênero são todos compostos pelos IMC's de mulheres. Contudo, no panorama dos índices máximos, existem alterações, analisando o maior valor máximo está o Atletismo (43,90), seguido do Judô (43,60), diferença de 0,30, diferentememte do caso geral, o qual era liferado pelo Judô por 12,12 a mais que o Atletismo. Já nos menores valores de IMC máximo, a Ginástica continua como menor (22,98), porém agora 2,02 a menos que o quarto menor - Futebol - outra mudança, posto que antes a distancia era de 0,28 e para o Badminton.
 
-Analisando a distribuição dos dados da população em relação ao valor médio, nota-se que analisando apenas as mulheres da mesma forma como na análise geral dos gêneros, o esporte com menor variação dos resultados de IMC é o badmintos como pode ser percebido pela menor amplitude entre os quartis (2,05), além de ter os menores valores de desvio padrão (1,38), além de ter sua mediana (21,36) próxima da média. ALém disso, da mesma maneira que no caso geral os esportes seguem aquela mesma ordem de concentração dos valores do índice. 
+Analisando a distribuição dos dados da população em relação ao valor médio, nota-se que analisando apenas as mulheres da mesma forma como na análise geral dos gêneros, o esporte com menor variação dos resultados de IMC é o badmintos como pode ser percebido pela menor amplitude entre os quartis (2,05), além de ter os menores valores de desvio padrão (1,38), além de ter sua mediana (21,36) próxima da média. ALém disso, da mesma maneira que no caso geral os esportes seguem aquela mesma ordem de concentração dos valores do índice.
 
 ::: {#tbl-cvfem layout-align="center" tbl-pos="H"}
 \begin{tabular}{l|r}
@@ -357,29 +356,29 @@ Por meio da @tbl-cvfem conclui-se que o esporte com mais homogeneidade é de fat
 
 A seguir, encontra-se a análise dos valores de IMC para os homens, no total forma 14 atletas que não tiveram seus dados computados para o cálculo do índice da massa corporal.
 
-![Boxplot dos esportes de interesse pelo IMC dos atletas masculinos](box_bi_masc.png){#fig-box-masc fig-align="center" width="158mm" fig-pos="H"}
+![Boxplot dos esportes de interesse pelo IMC dos atletas masculinos](images/box_bi_masc-01.png){#fig-box-masc fig-pos="H" fig-align="center" width="158mm"}
 
 ::: {#tbl-medidasmasc layout-align="center" tbl-pos="H"}
 \begin{tabular}{ | l |
-			S[table-format = 2.2]
-			S[table-format = 1.2]
-			S[table-format = 2.2]
-			S[table-format = 2.2]
-			S[table-format = 2.2]
-			|}
-	\toprule
-		\textbf{Estatística} & \textbf{Atletismo} & \textbf{Badminton} & \textbf{Futebol} & \textbf{Ginástica} & \textbf{Judô} \\
-		\midrule
-		Média & 23.39 & 22.96 & 23.22 & 22.29 & 26.95 \\
-		Desvio Padrão & 4.05 & 1.24 & 1.69 & 1.44 & 4.85 \\
-		Variância & 16.39 &  1.53 &  2.84 &  2.06 & 23.51 \\
-		Mínimo & 16.65 & 20.76 & 17.65 & 18.91 & 19.37 \\
-		1º Quartil & 20.78 & 22.15 & 22.15 & 21.09 & 23.84 \\
-		Mediana & 22.84 & 22.84 & 23.15 & 22.21 & 25.91 \\
-		3º Quartil & 24.69 & 23.67 & 24.21 & 23.14 & 28.45 \\
-		Máximo & 44.38 & 26.73 & 29.07 & 26.45 & 56.50 \\
-	\bottomrule
-	\end{tabular}
+            S[table-format = 2.2]
+            S[table-format = 1.2]
+            S[table-format = 2.2]
+            S[table-format = 2.2]
+            S[table-format = 2.2]
+            |}
+    \toprule
+        \textbf{Estatística} & \textbf{Atletismo} & \textbf{Badminton} & \textbf{Futebol} & \textbf{Ginástica} & \textbf{Judô} \\
+        \midrule
+        Média & 23.39 & 22.96 & 23.22 & 22.29 & 26.95 \\
+        Desvio Padrão & 4.05 & 1.24 & 1.69 & 1.44 & 4.85 \\
+        Variância & 16.39 &  1.53 &  2.84 &  2.06 & 23.51 \\
+        Mínimo & 16.65 & 20.76 & 17.65 & 18.91 & 19.37 \\
+        1º Quartil & 20.78 & 22.15 & 22.15 & 21.09 & 23.84 \\
+        Mediana & 22.84 & 22.84 & 23.15 & 22.21 & 25.91 \\
+        3º Quartil & 24.69 & 23.67 & 24.21 & 23.14 & 28.45 \\
+        Máximo & 44.38 & 26.73 & 29.07 & 26.45 & 56.50 \\
+    \bottomrule
+    \end{tabular}
 
 Medidas resumo do IMC dos atletas masculinos dos esportes de interesse
 :::
@@ -412,6 +411,6 @@ A fim de elucidar sobre a homogeneidade dos dados, a @tbl-cvmasc mostra que o Ba
 
 O teste exato de Fisher sugere que os atletas têm uma distribuição específica de medalhas (ouro, prata, bronze), indicando que alguns atletas tendem a ganhar mais de um certo tipo de medalha do que outros, e essa relação não ocorre por acaso.
 
-Essas duas variáveis categóricas formam a tabela de contingência que você usou para realizar os testes. No caso do teste exato de Fisher e do teste qui-quadrado, a ideia é verificar se existe uma associação entre essas duas variáveis — ou seja, se o tipo de medalha que um atleta conquista é independente do atleta, ou se existe uma relação entre o atleta e o tipo de medalha conquistada.
+Essas duas variáveis categóricas formam a tabela de contingência usada para realizar os testes. No caso do teste exato de Fisher e do teste qui-quadrado, a ideia é verificar se existe uma associação entre essas duas variáveis — ou seja, se o tipo de medalha que um atleta conquista é independente do atleta, ou se existe uma relação entre o atleta e o tipo de medalha conquistada. (acho que vou tirar a parte do qui, já que é impreciso para a baixa frequencia)
 
 # Conclusões
