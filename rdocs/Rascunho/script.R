@@ -64,24 +64,25 @@ dados_filtrados <- dados_brutos %>%
 
 ### filtrando apenas para o top 5
 
-unicos <- dados_filtrados %>% 
-  distinct(Names, Event, Ano, .keep_all = T) 
+
 
 dados_fem <- dados_filtrados %>% 
   filter(Gender == "F") %>% 
-  unique(, by = c("Names", "Event", "Ano"))
-
-
+  distinct(Names, .keep_all = T) %>% 
+  select(Names, Team, Medal) %>% 
+  group_by(Team) %>% 
+  summarise(total = n()) %>% 
+  arrange(desc(total)) %>% 
+  slice_head(n = 5)
 
 top_5_geral <- dados_filtrados %>% 
   filter(Gender == "F") %>%
-  unique() %>% 
+  distinct(Names, .keep_all = T) %>% 
   select(Team, Medal, Ano) %>%  
   group_by(Team) %>% 
   summarize(total = n()) %>% 
   arrange(desc(total)) %>% 
-  mutate(proporcao = total / sum(total)) 
-  slice_head(n = 5) 
+  mutate(proporcao = total / sum(total))
 
 ### para fazer o comparativo com os demais
   
@@ -104,8 +105,7 @@ dados_prop <- dados_prop %>%
   mutate(freq = total,
          relative_freq = round(proporcao * 100, 2),
          freq = gsub("\\.", ",", relative_freq) %>% paste("%", sep = ""),
-         label = str_c(total, " (", freq, ")") %>% str_squish()) %>% 
-  filter(Team != "Demais")
+         label = str_c(total, " (", freq, ")") %>% str_squish()) 
 
 # modelo estat
 
@@ -142,7 +142,8 @@ theme_estat <- function(...) {
 
 # grafico prop
 
-ggplot(dados_prop) +
+ggplot(dados_prop%>% 
+         filter(Team != "Demais")) +
   aes(x = fct_reorder(Team, total, .desc = TRUE), y = total) +  
   geom_bar(stat = "identity", fill = "#A11D21", width = 0.7) +
   geom_text(
@@ -153,7 +154,7 @@ ggplot(dados_prop) +
   ) +
   labs(x = "Países", y = "Frequência") +
   theme_estat()
-ggsave("colunas-prop-medalha.png", width = 158, height = 93, units = "mm")
+ggsave("colunas-prop-medalha.png", width = 158, height = 93, units = "mm", path = "C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/rdocs/images")
 
 # Grafico de setor
 
@@ -170,7 +171,7 @@ ggplot(dados_prop %>%
   theme_void() +
   theme(legend.position = "top") +
   scale_fill_manual(values = cores_estat, name = 'Países')
-ggsave("setor_paises.png", width = 158, height = 93, units = "mm")
+ggsave("setor_paises.png", width = 158, height = 93, units = "mm", path = "C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/rdocs/images")
 
 ########################### ENTREGA 02 ###########################
 ########## Média, desvio padrão, boxplot e histogramas por esporte
@@ -179,11 +180,10 @@ ggsave("setor_paises.png", width = 158, height = 93, units = "mm")
 "1 pound (avoirdupois)= 0.45359237 kilogram"
 
 imc_bruto <- dados_filtrados %>% 
-  filter(Sport %in% c("Athletics","Gymnastics", "Football", "Judo", "Badminton")) %>% 
-  select(`Height (cm)`, `Weight (lbs)`, Sport, Gender) %>%
+  filter(Sport %in% c("Athletics","Gymnastics", "Judo", "Badminton")) %>% 
+  select(`Height (cm)`, `Weight (lbs)`, Sport) %>%
   mutate(Sport = recode(Sport,
                         "Athletics" = "Atletismo",
-                        "Football" = "Futebol",
                         "Judo" = "Judô",
                         "Badminton" = "Badminton",  
                         "Gymnastics" = "Ginástica")) 
@@ -198,7 +198,7 @@ imc_limpo <- imc_bruto %>%
   select(Sport, imc) %>% 
   filter(imc != "NA")
   
-sum(is.na(imc_limpo$imc))
+### 14 observações que tinham dados incompletos no banco de dados
 
 
 ##### Funcao quadro resumo
@@ -294,7 +294,7 @@ imc_limpo  %>%
   ) + 
   labs(x = "Esportes de interesse", y = "IMC dos atletas (kilograma/metro^2)") +
   theme_estat()
-ggsave("box_bi.png", width = 158, height = 93, units = "mm")  
+ggsave("box_bi.png", width = 158, height = 93, units = "mm", path = "C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/rdocs/images")  
 
 
 ###### Coeficiente de variação (sd/mean) * 100 (%)
