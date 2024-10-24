@@ -11,18 +11,20 @@ source("rdocs/source/packages.R")
 
 ```
 
+# Análises
+
 ## IMC por Esporte
 
 Diante do banco de dados, obteve-se acesso às variáveis quantitativas contínuas que descrevem o peso dos atletas em libras (lbs) e suas respectivas alturas em metros (m), tendo isso o Índice de Massa Corporal (IMC) de cada um dos atletas foi calculando, atribuindo uma nova variável ao banco que também é classificada como quantitativa contínua, para, assim, realizar as análises, além disso, durante os cálculos 14 atletas não tiveram ou suas alturas ou seus pesos computados no banco de dados e por isso foram retirados da variável que contabiliza todos os IMC's. Ainda, vale ressaltar que pelo interesse de observar como os valores de IMC se distribuem, agrupou-se os dados em relação aos Esportes de interesse, que são identificados como variável qualitativa nominal, a qual não tem distinção de ordem dentro da categoria, além disso, tanto homens, quanto mulheres foram agrupados igualmente, conforme suas categorias olímpicas - Atletismo, Badminton, Ginástica, Judô.
 
-![Boxplot explicativo sobre seus elementos](images/box_uni.png){#fig-e-box-expli alt="Boxplot explicativo sobre seus elementos" fig-align="center" width="158mm"}
+![Boxplot explicativo sobre seus elementos](rdocs/images/box_uni.png){#fig-e-box-expli fig-align="center" width="158mm"}
 
 Para analisar os dados obtidos serão utilizados *boxplots* como forma de visualização das informações e por meio da @fig-e-box-expli apresenta-se o padrão e estruturação deles.
 
-![Boxplot do IMC pelos esportes](images/box_bi.png){#fig-boxplot alt="Boxplot dos esportes de interesse pelo IMC" fig-pos="H" fig-align="center" width="158mm"}
+![Boxplot dos esportes de interesse pelo IMC](rdocs/images/box_bi.png){#fig-boxplot fig-pos="H" fig-align="center" width="158mm"}
 
 ::: {#tbl-medidas layout-align="center" tbl-pos="H"}
-\begin{tabular}{ | l |         S[table-format = 2.2]         S[table-format = 1.2]         S[table-format = 2.2]         S[table-format = 2.2]         S[table-format = 2.2]         |} \toprule     \textbf{Estatística} & \textbf{Atletismo} & \textbf{Badminton} & \textbf{Futebol} & \textbf{Ginástica} & \textbf{Judô} \\     \midrule     Média & 22.30 & 22.21 & 22.51 & 20.68 & 25.70 \\     Desvio Padrão & 3.86 & 1.50 & 1.73 & 2.38 & 5.12 \\     Variância & 14.92 &  2.26 &  2.99 &  5.67 & 26.23 \\     Mínimo & 15.82 & 18.94 & 16.73 & 15.16 & 18.52 \\     1º Quartil & 20.03 & 21.22 & 21.34 & 18.61 & 22.06 \\     Mediana & 21.45 & 22.28 & 22.49 & 21.09 & 24.68 \\     3º Quartil & 23.67 & 23.21 & 23.71 & 22.48 & 27.70 \\     Máximo & 44.38 & 26.73 & 29.07 & 26.45 & 56.50 \\ \bottomrule \end{tabular}
+\begin{tabular}{ | l |         S[table-format = 2.2]         S[table-format = 1.2]         S[table-format = 2.2]         S[table-format = 2.2] |} \toprule     \textbf{Estatística} & \textbf{Atletismo} & \textbf{Badminton} & \textbf{Ginástica} & \textbf{Judô} \\     \midrule     Média & 22.30 & 22.21 & 20.68 & 25.70 \\     Desvio Padrão & 3.86 & 1.50 & 2.38 & 5.12 \\     Variância & 14.92 &  2.26 &  5.67 & 26.23 \\     Mínimo & 15.82 & 18.94 & 15.16 & 18.52 \\     1º Quartil & 20.03 & 21.22 & 18.61 & 22.06 \\     Mediana & 21.45 & 22.28 & 21.09 & 24.68 \\     3º Quartil & 23.67 & 23.21 & 22.48 & 27.70 \\     Máximo & 44.38 & 26.73 & 26.45 & 56.50 \\ \bottomrule \end{tabular}
 
 Medidas resumo do IMC por esportes
 :::
