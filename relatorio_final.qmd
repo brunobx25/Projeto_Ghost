@@ -5,9 +5,10 @@ title: "Projeto - Fantasma"
 output-file: projeto fantasma
 ---
 
+
 ```{r source, cache=TRUE}
 #| include: false
-source("C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/rdocs/source/packages.R")
+source("rdocs/source/packages.R")
 ```
 
 # Introdução

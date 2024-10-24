@@ -7,7 +7,7 @@ output-file: projeto fantasma
 
 ```{r source, cache=TRUE}
 #| include: false
-source("rdocs/source/packages.R")
+source("C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/rdocs/source/packages.R")
 
 ```
 

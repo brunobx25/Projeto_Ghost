@@ -1,0 +1,30 @@
+---
+title: "Projeto - Fantasma"
+
+# Nome do documento PDF gerado
+output-file: analise 3
+---
+
+```{r source, cache=TRUE}
+#| include: false
+source("C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/rdocs/source/packages.R")
+
+```
+
+# Análises
+
+# 3 maiores medalhistas
+
+::: {#tbl-tex layout-align="center" tbl-pos="H"}
+\begin{tabular}{| l |}
+\toprule
+   \textbf{Grupo} & \textbf{P-valor} & \textbf{Decisão do teste} \\ \hline
+    \midrule
+    \multicolumn{1}{|c}{\begin{tabular}[c]{@{}c@{}}Atletas\\ Medalhas\end{tabular}} & \multicolumn{1}{c}{0,006} & \multicolumn{1}{c|}{Rejeita $H_0$} \\ \hline
+\bottomrule
+\end{tabular}
+:::
+
+O teste exato de Fisher sugere que os atletas têm uma distribuição específica de medalhas (ouro, prata, bronze), indicando que alguns atletas tendem a ganhar mais de um certo tipo de medalha do que outros, e essa relação não ocorre por acaso.
+
+Essas duas variáveis categóricas formam a tabela de contingência usada para realizar os testes. No caso do teste exato de Fisher e do teste qui-quadrado, a ideia é verificar se existe uma associação entre essas duas variáveis — ou seja, se o tipo de medalha que um atleta conquista é independente do atleta, ou se existe uma relação entre o atleta e o tipo de medalha conquistada. (acho que vou tirar a parte do qui, já que é impreciso para a baixa frequencia)

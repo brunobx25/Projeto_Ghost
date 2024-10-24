@@ -7,7 +7,7 @@ output-file: analise 02
 
 ```{r source, cache=TRUE}
 #| include: false
-source("C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/rdocs/source/packages.R")
+source("rdocs/source/packages.R")
 
 ```
 
