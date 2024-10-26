@@ -13,17 +13,10 @@ source("rdocs/source/packages.R")
 
 # Análises
 
-# 3 maiores medalhistas
+## Os 3 maiores medalhistas
 
-::: {#tbl-tex layout-align="center" tbl-pos="H"}
-\begin{tabular}{| c  c  c |}
-\toprule
-   \textbf{Grupo} & \textbf{P-valor} & \textbf{Decisão do teste} \\ \hline
-    \multicolumn{1}{|c}{\begin{tabular}[c]{@{}c@{}}Atletas\\ Medalhas\end{tabular}} & \multicolumn{1}{c}{0,006} & \multicolumn{1}{c|}{Rejeita $H_0$} \\ 
-\bottomrule
-\end{tabular}
-:::
+Para a análise buscou-se entender quais são os 3 medalhistas com maior número de medalhas no total, e dentre eles, observar a quantidade de cada tipo de medalha que cada um destes atletas conquistou, sendo ouro, prata ou bronze. Nesse caso, utilizou-se duas variáveis, o atleta em si, identificado como qualitativa nominal e a quantidade de medalhas de cada tipo (Bronze, Prata e Ouro), dada por uma variável quantitativa discreta, já que esses valores são contáveis e indicam a quantidade de medalhas por tipo para cada atleta.
 
-O teste exato de Fisher sugere que os atletas têm uma distribuição específica de medalhas (ouro, prata, bronze), indicando que alguns atletas tendem a ganhar mais de um certo tipo de medalha do que outros, e essa relação não ocorre por acaso.
+![Gráfico de colunas dos atletas pelo tipo de medalha](images/colunas-bi-freq-01.png){#fig-top3-medalhas fig-align="center" width="158mm"}
 
-Essas duas variáveis categóricas formam a tabela de contingência usada para realizar os testes. No caso do teste exato de Fisher e do teste qui-quadrado, a ideia é verificar se existe uma associação entre essas duas variáveis — ou seja, se o tipo de medalha que um atleta conquista é independente do atleta, ou se existe uma relação entre o atleta e o tipo de medalha conquistada. (acho que vou tirar a parte do qui, já que é impreciso para a baixa frequencia)
+Através da @fig-top3-medalhas, nota-se que por haver diferenças marcantes da quantidade de medalhas de ouro do atleta dos Estados Unidos, Michael Phelps, em relação aos demais, pode-se sugerir que há uma aparente correlação visual entre as variáveis. Caso contrário, se as quantidades de medalhas fossem semelhantes entre os atletas, poderia-se supor que não há uma forte associação entre os atletas e os tipos de medalhas, porém não é esse o caso dos *Top* 3 medalhistas. Essa mesma percepção de correlção pode ser percebida nas frequências, se um atleta conquistar uma proporção muito maior de um tipo de medalhas em específico - muito mais ouros a exemplo - pode-se sugerir um caso de associação, esse é o caso da @fig-top3-medalhas, a qual Phelps e Ryan Lochte se destacam por uma proporção diferenciada de medalhas de ouro, evidenciando uma plausível correlação entre esses atletas e o tipo de medalha.

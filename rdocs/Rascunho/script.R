@@ -133,6 +133,7 @@ theme_estat <- function(...) {
       scale_fill_manual(values = cores_estat),
       scale_colour_manual(values = cores_estat),
       scale_y_continuous(
+        limits = c(0, 25),
         labels = scales::number_format(decimal.mark = ',',
                                        #accuracy = 0.01,
                                        big.mark = "."))
@@ -390,37 +391,53 @@ coef_var_masc <- coef_var_masc %>%
 
 ########################### ENTREGA 03 ###########################
 
-#### qui quadrado
+#### preparando os dados para fazer o gráfico
 
-medalhistas <- dados_filtrados %>% 
+medalhistas <- dados_filtrados %>%  # os top 3 medalistas
   select(Names, Medal) %>% 
   group_by(Names) %>% 
   summarise(total_med = n()) %>% 
   top_n(3, total_med)
 
-top_med <- dados_filtrados %>% 
+
+top_med <- dados_filtrados %>%  # determinando quais as medalhas conquistadas por cada um do TOP 3
   filter(Names %in% medalhistas$Names) %>% 
   group_by(Names, Medal) %>% 
-  summarise(quantidade = n()) %>% 
-  ungroup()
+  summarise(quantidade = n(), .groups = "drop") %>% 
+  group_by(Names) %>% 
+  mutate(
+    freq_relativa = round(quantidade / sum(quantidade) * 100, 2)
+  )
+
+porcentagens <- str_c(top_med$freq_relativa, "%") %>% str_replace("
+ \\.", ",")
+legendas <- str_squish(str_c(top_med$quantidade, " (", porcentagens, ")")
+)
 
 ########## Fazer grafico para visualizar 
 
-
-############ chi quadrado
-
-tabela_chi <- xtabs(quantidade ~ Names + Medal, data = top_med)
-
-chisq.test(tabela_chi)
-
-#data:  tabela_chi
-#X-squared = 12.776, df = 4, p-value = 0.01243  
-
-# fisher 
-
-fisher.test(tabela_chi)
+ggplot(top_med) +
+  aes(
+    x = fct_reorder()
+  )
 
 
-
-
+top_med %>% 
+  mutate(Medal = recode(Medal,
+                "Gold" = "Ouro",
+                "Silver" = "Prata")) %>% 
+  rename(Medalha = Medal) %>% 
+  ggplot(aes(
+    x = fct_reorder(Names, quantidade, .desc = T), y = quantidade,
+    fill = Medalha, label = legendas
+  )) +
+  geom_col(position = position_dodge2(preserve = "single", padding = 0)) +
+  geom_text(
+    position = position_dodge(width = .9),
+    vjust = -0.5, hjust = 0.5,
+    size = 3
+  ) +
+  labs(x = "Atletas", y = "Frequência") + 
+  theme_estat()
+ggsave("colunas-bi-freq.png", width = 158, height = 93, units = "mm", path = "C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/rdocs/images")
 

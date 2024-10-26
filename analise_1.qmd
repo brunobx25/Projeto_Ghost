@@ -15,7 +15,7 @@ source("rdocs/source/packages.R")
 
 ## Top 5 países com mais medalhistas femininas
 
-A partir do acesso ao banco de dados disponibilizado pela "House of Excellence", tivemos acesso aos dados de todos os atletas que participaram das olimpíadas de 2000 até 2016. Nesse cenário, com o intuito de produzir um ranqueamento das cinco delegações que obtiveram mais conquistas nesse período nas modalidades femininas, do banco de dados original, foram utilizadas as variáveis de sexo("Gender"), a qual era dividida entre Feminino ("F") e Masculino ("M"), ainda foi utilizada a variável que descrevia qual país era a origem do atleta, sendo a base para agrupar as conquistas, e por último a que evidenciava qual medalha havia sido conquistada.
+A partir do acesso ao banco de dados disponibilizado pela "House of Excellence", tivemos acesso aos dados de todos os atletas que participaram das olimpíadas de 2000 até 2016. Nesse cenário, com o intuito de produzir um ranqueamento das cinco delegações que obtiveram mais conquistas nesse período nas modalidades femininas, do banco de dados original, foram utilizadas as variáveis de sexo ("Gender"), a qual é classificada como qualitativa nominal, ainda foi utilizada a variável que descrevia qual país era a origem do atleta, outra qualitativa nominal, sendo a base para agrupar as conquistas, e por último a que evidenciava qual medalha havia sido conquistada.
 
 ![Gráfico de colunas do total de conquistas de cada delegação do Top 5](rdocs/images/colunas-prop-medalha.png){#fig-prop fig-align="center" width="158mm"}
 
