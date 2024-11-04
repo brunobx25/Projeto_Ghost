@@ -12,7 +12,11 @@ source("rdocs/source/packages.R")
 
 # Introdução
 
-Explicar o banco de dados(correção do que fiz na analise 1)
+O seguinte projeto tem por objetivo a apresentação das análises estatísticas requisitadas por João Neves, proprietário da House of Excellence, academia de alta performance, que visam trazer informações para otimização do desempenho de seus atletas de elite, que participaram das olimpíadas dos anos de 2000 até 2016. Essas análises consistiram em observar quais eram os cinco países com mais medalhistas femininas, verificar padrôes em relação ao IMC dos atletas de determinados esportes, entender se há relação nos três maiores medalhistas entre o atleta e cada tipo de medalha conquistada e, por último, estudar a relação entre peso e altura dos competidores. Portanto, para a produção desse projeto foram abordadas análises descritivas.
+
+Ainda, a base de dados que foi utilizada nesse processo foi o banco Olímpiadas 2000 - 2016, em formato de planilha do Microsoft Excel (VERIFIVAR A ORIGEM DELE),. Além disso, cabe ressaltar que os dados não são uma amostra probabilística, já que os dados são obtidos de toda a população de atletas, logo planos de amostragem não foram necessários. Para a produção do relatório foram considerados nas análises apenas os atletas que conquistaram medalhas olímpicas, bem como a única variável que não foi utilizada foi o evento em específico de cada atleta.
+
+Assim, por meio destes dados e dos interesses do cliente, a plataforma escolhida para a confecção do projeto foi o *R Studio* na sua versão 4. 4. 1 e somente ela foi utilizada.
 
 # Referencial Teórico
 
@@ -194,7 +198,7 @@ Uma distribuição é dita mesocúrtica quando possui curtose nula. Quando a cur
 
 O boxplot é uma representação gráfica na qual se pode perceber de forma mais clara como os dados estão distribuídos. A figura abaixo ilustra um exemplo de boxplot.
 
-![Exemplo de boxplot](images/box_uni.png){fig-align="center"}
+![Exemplo de boxplot](resultados/images/box_uni.png){fig-align="center" width="158mm"}
 
 A porção inferior do retângulo diz respeito ao primeiro quartil, enquanto a superior indica o terceiro quartil. Já o traço no interior do retângulo representa a mediana do conjunto de dados, ou seja, o valor em que o conjunto de dados é dividido em dois subconjuntos de mesmo tamanho. A média é representada pelo losango branco e os pontos são *outliers*. Os *outliers* são valores discrepantes da série de dados, ou seja, valores que não demonstram a realidade de um conjunto de dados.
 
@@ -202,13 +206,13 @@ A porção inferior do retângulo diz respeito ao primeiro quartil, enquanto a s
 
 O histograma é uma representação gráfica utilizada para a visualização da distribuição dos dados e pode ser construído por valores absolutos, frequência relativa ou densidade. A figura abaixo ilustra um exemplo de histograma.
 
-![Exemplo de histograma](images/hist_uni.png){fig-align="center" width="158mm"}
+![Exemplo de histograma](resultados/images/hist_uni.png){fig-align="center" width="158mm"}
 
 ## Gráfico de Dispersão
 
 O gráfico de dispersão é uma representação gráfica utilizada para ilustrar o comportamento conjunto de duas variáveis quantitativas. A figura abaixo ilustra um exemplo de gráfico de dispersão, onde cada ponto representa uma observação do banco de dados.
 
-![Exemplo de Gráfico de Dispersão](images/disp_uni.png){fig-align="center" width="158mm"}
+![Exemplo de Gráfico de Dispersão](resultados/images/disp_uni.png){fig-align="center" width="158mm"}
 
 ## Tipos de Variáveis
 
@@ -230,17 +234,17 @@ As variáveis quantitativas são as variáveis numéricas, que representam carac
 
 ## Top 5 países com mais medalhistas femininas
 
-A partir do acesso ao banco de dados disponibilizado pela "House of Excellence", tivemos acesso aos dados de todos os atletas que participaram das olimpíadas de 2000 até 2016. Nesse cenário, com o intuito de produzir um ranqueamento das cinco delegações que obtiveram mais conquistas nesse período nas modalidades femininas, do banco de dados original, foram utilizadas as variáveis de sexo("Gender"), a qual era dividida entre Feminino ("F") e Masculino ("M"), ainda foi utilizada a variável que descrevia qual país era a origem do atleta, sendo a base para agrupar as conquistas, e por último a que evidenciava qual medalha havia sido conquistada.
+A partir do acesso ao banco de dados disponibilizado pela "House of Excellence", tivemos acesso aos dados de todos os atletas que participaram das olimpíadas de 2000 até 2016. Nesse cenário, com o intuito de produzir um ranqueamento das cinco delegações que obtiveram mais conquistas nesse período nas modalidades femininas, do banco de dados original, foram utilizadas as variáveis de sexo, ainda foi utilizada a variável que descrevia qual país era a origem do atleta, sendo essa a base para agrupar as conquistas e, por último, a que continha os nomes das medalhistas, todas elas classificadas como qualitativas nominais, já que não existe ordem entre as categorias.
 
-![Gráfico de colunas do total de conquistas de cada delegação do Top 5](images/colunas-prop-medalha.png){#fig-prop fig-align="center" width="158mm"}
+![Gráfico de colunas do total de conquistas de cada delegação do Top 5](resultados/images/colunas-prop-medalha.png){#fig-prop fig-align="center" width="158mm"}
 
-Tendo a @fig-prop como referência podemos analisar que os Estados Unidos lideram a lista com 741 medalhas, seguidos da delegação russa com 416 - o que representa uma diferença de 325 conquistas entre o primeiro e o segundo colocado - em terceiro colocado está a China com 384, a Austrália na quarta posição com 340 e fechando o ranqueamento a Alemanha com 268, distanciando-se do penúltimo colocado por 72 medalhas e em relação ao primeiro são 473 - valor maior que as conquistas da Rússia que ocupa o segundo lugar.
+Tendo a @fig-prop como referência podemos analisar que os Estados Unidos lideram a lista com 443 medalhistas, seguidos da delegação russa com 298- o que representa uma diferença de 145 entre o primeiro e o segundo colocado - em terceiro colocado está a China com 268, a Austrália na quarta posição com 219 e fechando o ranqueamento a Alemanha com 187, distanciando-se do penúltimo colocado por 32 atletas e em relação ao primeiro são 256- valor maior que as medalhistas da Austrália que ocupa o quarto lugar.
 
-Através da análise dos dados evidencia-se que dentre as modalidades femininas, durante os anos de 2000 a 2016 considerando todas os pódios sem distinção entre ouro, prata e bronze, totalizam-se 4597 conquistas. Dado o interesse da "House of Excelence" em entender o cenário das conquistas olímpicas, foi contruída uma análise da frequência dessas medalhas em relação ao total de medalhas femininas. Assim por meio da @fig-prop, no "Top 5" percebe-se que os Estados Unidos detém o topo do quadro de medalhas com 16,12%, seguido da Rússia que contém 9,05% , a China em terceiro com 8,,35%, a Austrália na quarta posição com 7,4% e fechando o ranqueamento a Alemanha com 5,83%.
+Através da análise dos dados evidencia-se que dentre as modalidades femininas, durante os anos de 2000 a 2016 considerando todas as atletas que medalharam sem distinção entre ouro, prata e bronze, totalizam-se 3245 medalhistas. Dado o interesse da "House of Excelence" em entender o cenário das conquistas olímpicas femininas, foi contruída uma análise da frequência dessas atletas do *Top* 5 em relação ao total de atletas femininas. Assim por meio da @fig-prop, no *Top* 5 percebe-se que os Estados Unidos detém o topo do quadro de medalhas com 13,65%, seguido da Rússia que contém 9,18% , a China em terceiro com 8,,26%, a Austrália na quarta posição com 6,75% e fechando o ranqueamento a Alemanha com 5,76%.
 
-![Gráfico de setor da frequência de conquistas entre as delegações dentro e fora do Top 5](images/setor_paises.png){#fig-setor fig-pos="H" fig-align="center" width="158mm"}
+![Gráfico de setor da frequência de conquistas entre as delegações dentro e fora do Top 5](resultados/images/setor_paises.png){#fig-setor fig-pos="H" fig-align="center" width="158mm"}
 
-Para mais, a fim de esclarecer como os melhores países se comparam aos demais, diante da @fig-prop e da @fig-setor analisa-se que as delagações fora do "Top 5", totalizam 2448 pódios, o que representa 53,25% do todo. Nesse cenário, nota-se que os cinco países com melhor perfomance nos jogos possuem 2149 medalhas, o que condiz a 46,75% de todas as conquistas.
+Para mais, a fim de esclarecer como os melhores países se comparam aos demais, diante da @fig-prop e da @fig-setor analisa-se que as delagações fora do "Top 5", totalizam 1830 medalhistas, o que representa 56,39% do todo. Nesse cenário, nota-se que os cinco países com melhor perfomance nos jogos possuem 1415, o que condiz a 43,61% de todas as conquistas.
 
 ## IMC por Esporte
 
@@ -407,10 +411,62 @@ Coeficiente de variação de IMC dos atletas masculinos dos esportes de interess
 
 A fim de elucidar sobre a homogeneidade dos dados, a @tbl-cvmasc mostra que o Badminton (5,39%), assim como no geral e no feminino, tem o a menor coeficiente, indicando a maior concentração dos valores em torno da média, com apenas uma modificação, no masculino a concentração é a maior entre as demais. Entretanto, diferentemente, do caso geral e do feminino, o segundo menor valor, no masculno, é da Ginástica (6,44%). Outra alteração está no Judô, esse continua sendo o mais disperso entre as modalidades, o que é percebido pela maior coeficiente, porém, de todas as análises anteriores, nos homens a categoria obteve a maior concentração (17,99%), no caso geral eram 19,93% e no feminino 20,85% - o maior valor.
 
-## 3 maiores medalhistas
+## Os 3 maiores medalhistas
 
-O teste exato de Fisher sugere que os atletas têm uma distribuição específica de medalhas (ouro, prata, bronze), indicando que alguns atletas tendem a ganhar mais de um certo tipo de medalha do que outros, e essa relação não ocorre por acaso.
+Para a análise buscou-se entender quais são os 3 medalhistas com maior número de medalhas no total, e dentre eles, observar a quantidade de cada tipo de medalha que cada um destes atletas conquistou, sendo ouro, prata ou bronze. Nesse caso, utilizou-se duas variáveis, o atleta em si, identificado como qualitativa nominal e a quantidade de medalhas de cada tipo (Bronze, Prata e Ouro), dada por uma variável qualitativa ordinal, uma vez que suas categorias possuem ordens entre si.
 
-Essas duas variáveis categóricas formam a tabela de contingência usada para realizar os testes. No caso do teste exato de Fisher e do teste qui-quadrado, a ideia é verificar se existe uma associação entre essas duas variáveis — ou seja, se o tipo de medalha que um atleta conquista é independente do atleta, ou se existe uma relação entre o atleta e o tipo de medalha conquistada. (acho que vou tirar a parte do qui, já que é impreciso para a baixa frequencia)
+![Gráfico de colunas da frequência de cada tipo de medalha dos 3 maiores medalhistas](resultados/images/colunas-bi-freq.png){#fig-top3-medalhas fig-align="center" width="158mm"}
+
+![Gráfico de colunas da frequência de cada tipo de medalha dos 3 maiores medalhistas](resultados/colunas-bi-freq.png){fig-align="center" width="158mm"}
+
+::: {#tbl-valores layout-align="center" tbl-pos="H"}
+\begin{tabular}{l | rrrr} \toprule \textbf{Atletas}          & \multicolumn{1}{l}{\textbf{Ouro}} & \multicolumn{1}{l}{\textbf{Prata}} & \multicolumn{1}{l}{\textbf{Bronze}} & \multicolumn{1}{l}{\textbf{Total}} \\ \midrule Natalie Coughlin & 3                        & 4                         & 5                          & 12                                 \\ Michael Phelps   & 23                       & 3                         & 2                          & 28                                 \\ Ryan Lotche      & 6                        & 3                         & 3                          & 12                                 \\ \bottomrule \end{tabular}
+
+Valores que representam a quantidade de cada um tipo de medalha para os 3 maiores medalhistas
+:::
+
+Através da @fig-top3-medalhas, nota-se que por haver diferenças marcantes da quantidade de medalhas de ouro do atleta dos Estados Unidos, Michael Phelps, em relação aos demais, pode-se sugerir que há uma aparente correlação visual entre as variáveis. Caso contrário, se as quantidades de medalhas fossem semelhantes entre os atletas, poderia-se supor que não há uma forte associação entre os atletas e os tipos de medalhas, porém não é esse o caso dos *Top* 3 medalhistas. Essa mesma percepção de correlação pode ser percebida nas frequências, se um atleta conquistar uma proporção muito maior de um tipo de medalhas em específico - muito mais ouros a exemplo - pode-se sugerir um caso de associação, esse é o caso da @fig-top3-medalhas, a qual Phelps e Ryan Lochte se destacam por uma proporção diferenciada de medalhas de ouro, evidenciando uma plausível correlação entre esses atletas e o tipo de medalha.
+
+Por meio da @tbl-valores nota-se que Michael Phelps tem um valor altamente discrepante em relação aos demais, uma vez que seu total ultrapassa os outros dois juntos, somente de ouro ele possui 23, o que significa que caso somadas todas as conquistas dos outros dois maiores medalhistas, totalizando 24 medalhas, Phelps perderia apenas por 1 medalha, suas conquistas de ouro representam 82,14% de todos os seus pódios, evidenciando uma alta efetividade em suas conquistas. Ainda, nota-se que Ryan Lotche, mesmo que não contendo tantas medalhas comparadas às de Phelps, destaca-se por 50% das duas 12 medalhas serem de ouro, e suas demais conquistas representarem 25% cada, mostrando uma alta representatividade dos ouros. Já para Natalie Coughlin sua maior frequência de medalhas são os bronzes com 5 conquistas (41,67%) e com 3 de ouro (25%) de seus pódios olímpicos.
+
+## Variação Peso por Altura
+
+O intuito neste momento é entender a relação entre o peso e altura dos medalhistas olímpicos e para isso a variável que armazena os pesos dos atletas em libras e a que representa as alturas em centímetros, ambas as variáveis são classificadas como quantitativas contínuas. Diante desses dados, visando atingir o interesse dessa análise, foram cotruídos o gráfico e aos quadros a seguir.
+
+![Gráfico de dispersão da altura pelo peso dos atletas](resultados/images/disp_uni_pesoaltura.png){#fig-disp fig-align="center" width="158mm"}
+
+![Boxplot da Altura dos atletas](resultados/images/box_altura.pdf){#fig-box-altura fig-pos="H" fig-align="center"}
+
+![Boxplot do Peso dos atletas](resultados/images/box_peso.pdf){#fig-box-peso fig-pos="H" fig-align="center"}
+
+::: {#tbl-quadresum-alt layout-align="center" tbl-pos="H"}
+\begin{tabular}{ | l |         S[table-format = 2.2]         S[table-format = 3.2] |} 
+\toprule     
+\textbf{Estatística} & \textbf{Altura} & \textbf{Peso}  \\    
+\midrule
+        Média & 1.78 & 74.00\\
+        Desvio Padrão & 0.12 & 16.26\\
+        Variância & 0.01 & 264.26\\
+        Mínimo & 1.37 & 28.00\\
+        1º Quartil & 1.7 & 62.00\\
+        Mediana & 1.78 & 72.00\\
+        3º Quartil & 1.86 & 84.00\\
+        Máximo & 2.19 & 175.00\\
+        Coeficiente de Variação & \text{7\%} & \text{22\%} \\
+    \bottomrule
+    \end{tabular}
+
+Medidas resumo da Altura (m) e do Peso (kg) dos atletas
+:::
+
+Ao observar a @fig-disp, é perceptível que a maioria dos atletas, os quais são representados pelos pontos no gráfico estão agrupados abaixo das cem kilogramas, tal análise também pode ser feita percebendo que a maioria possui altura inferior aos a dois metros. Agora, analisando a dispersão dos pontos na imagem é fácil compreender que a maior concentração deles sugere que quanto maior a altura dos atletas maior será seu peso, uma vez que o conjunto de pontos mais próximos uns dos outros supôem uma correlão positiva forte dos dados, isso acontece quando os pontos se assemelham a uma reta crescente. Ainda, nota-se que essa relação se torna mais forte a partir dos atletas com mais de um metro e cinquenta de altura.
+
+Para mais, estudando a @tbl-quadresum-alt destaca-se que a média de altura dos atletas é de 1,78 metros, assim como sua mediana - termo esse que divide em 50% porcento todas as observações em ordem cresecente, logo conclui-se que para este caso a média não tem seus valores afetados por valores extremos -ainda, verificam-se valores de mínimo em 1,37 e máximo em 2,19. Contudo, mesmo com uma disparidade alta entre máximo e mínimo, nota-se que os dados estão bastante concentrados, o que pode ser percebido pelo desvio padrão de 0,12 metro. Além disso, ao analisar a medida do coeficiente de variação - índice que determina quando o desvio padrão representa em relação à média - observa-se apenas um valor de 7%, corroborando ao entendimento de uma alta homogeneidade dos dados e uma baixa dispersão da altura.
+
+Outrossim, por meio da @tbl-quadresum-alt analisa-se um valor médio de 74 kilogramas e com sua mediana em 72 kg, evidenciando que a média é influencidada por valores extremos. Ainda, destacam-se a mínima ser de 28 kg e a máxima de 175 kg. Diferentemente da altura, aqui percebe-se haver uma maior dispersão dos valores de peso, isso porquê o desvio padrão aqui passa a ser de 16,26 kg e analisando seu coeficiente de variação em 22%, pela teoria, valores menores que 25% são considerados homogêneos, dessa forma, a dispersão neste caso está relativamente próxima do limite para ser homogênea.
+
+Através da @fig-box-altura pode-se perceber que pelo valor de mediana e de média estarem bastante próximos uns dos outros - como foi observado na @tbl-quadresum-alt e visualizado agora por meio da @fig-box-altura - concluisse que existe simetria dos valores, que significa dizer que entre o primeiro e o terceiro quartil os valores que aparecem com maior frequência estão bastante próximos da média e da mediana. Ainda, nota-se que os valores de máximo e mínimo apresentam distancia semelhante em relação à caixa, além de possui valores extremos que também se distribuem de maneira semelhante tanto para cima, quanto para baixo.
+
+Diante da @fig-box-peso nota-se, diferentemente da altura, haver maior assimetria dos dados. Em primeira análise, destaca-se do gráfico que sua mediana está distante da sua média, o que representa, neste caso, que há assimetria positiva, isso ocorre quando existe maior ocorrência de valores que númericamente são próximas no intervalo entre o primeiro quartil e a mediana. Para mais, observando os valores extremos, percebe-se que existe maior quantidade deles a acima do máximo estipulado na contrução do gráfico, tal fato corrobora à análise da @tbl-quadresum-alt sobre a média ser influenciada por esses valores extremos e se distanciar da mediana.
 
 # Conclusões

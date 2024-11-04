@@ -84,6 +84,7 @@ top_5_geral <- dados_filtrados %>%
   arrange(desc(total)) %>% 
   mutate(proporcao = total / sum(total))
 
+sum(top_5_geral$total)
 ### para fazer o comparativo com os demais
   
 demais <- top_5_geral %>% 
@@ -133,8 +134,7 @@ theme_estat <- function(...) {
       scale_fill_manual(values = cores_estat),
       scale_colour_manual(values = cores_estat),
       scale_y_continuous(
-        limits = c(0, 25),
-        labels = scales::number_format(decimal.mark = ',',
+              labels = scales::number_format(decimal.mark = ',',
                                        #accuracy = 0.01,
                                        big.mark = "."))
     )
@@ -155,7 +155,7 @@ ggplot(dados_prop%>%
   ) +
   labs(x = "Países", y = "Frequência") +
   theme_estat()
-ggsave("colunas-prop-medalha.png", width = 158, height = 93, units = "mm", path = "C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/rdocs/images")
+ggsave("colunas-prop-medalha.png", width = 158, height = 93, units = "mm", path = "C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/resultados/images")
 
 # Grafico de setor
 
@@ -172,7 +172,7 @@ ggplot(dados_prop %>%
   theme_void() +
   theme(legend.position = "top") +
   scale_fill_manual(values = cores_estat, name = 'Países')
-ggsave("setor_paises.png", width = 158, height = 93, units = "mm", path = "C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/rdocs/images")
+ggsave("setor_paises.png", width = 158, height = 93, units = "mm", path = "C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/resultados/images")
 
 ########################### ENTREGA 02 ###########################
 ########## Média, desvio padrão, boxplot e histogramas por esporte
@@ -180,8 +180,11 @@ ggsave("setor_paises.png", width = 158, height = 93, units = "mm", path = "C:/Us
 
 "1 pound (avoirdupois)= 0.45359237 kilogram"
 
-imc_bruto <- dados_filtrados %>% 
-  filter(Sport %in% c("Athletics","Gymnastics", "Judo", "Badminton")) %>% 
+
+
+imc_bruto <- dados_brutos %>% 
+  filter(Sport %in% c("Athletics","Gymnastics", "Judo", "Badminton"),
+         !is.na(Medal)) %>% 
   select(`Height (cm)`, `Weight (lbs)`, Sport) %>%
   mutate(Sport = recode(Sport,
                         "Athletics" = "Atletismo",
@@ -191,6 +194,10 @@ imc_bruto <- dados_filtrados %>%
 
 sum(is.na(imc_bruto$`Weight (lbs)`))
 sum(is.na(imc_bruto$`Height (cm)`))
+which(is.na(imc_bruto$`Height (cm)`))
+which(is.na(imc_bruto$`Weight (lbs)`))
+
+#14 NA´s totais 
 
 imc_limpo <- imc_bruto %>% 
   mutate(`Peso(kg)` = `Weight (lbs)`*0.45359237,
@@ -201,10 +208,21 @@ imc_limpo <- imc_bruto %>%
   
 ### 14 observações que tinham dados incompletos no banco de dados
 
+imc <- dados_brutos%>%
+  mutate(
+    Height_m = `Height (cm)` / 100,  
+    Weight_kg = `Weight (lbs)` * 0.453592,  
+    IMC = Weight_kg / (Height_m^2)  
+  ) %>%
+  filter(
+    Sport %in% c("Gymnastics", "Judo", "Athletics", "Badminton"),  
+    Medal %in% c("Gold", "Silver", "Bronze")  
+  ) %>%
+  distinct()
 
 ##### Funcao quadro resumo
 
-print_quadro_resumo <- function(data, var_name, title="Medidas resumo do IMC por esportes", label="quad:quadro_resumo1")
+print_quadro_resumo <- function(data, var_name, title="", label="")
 {
   var_name <- substitute(var_name)
   data <- data %>%
@@ -416,28 +434,125 @@ legendas <- str_squish(str_c(top_med$quantidade, " (", porcentagens, ")")
 
 ########## Fazer grafico para visualizar 
 
-ggplot(top_med) +
-  aes(
-    x = fct_reorder()
-  )
-
-
 top_med %>% 
   mutate(Medal = recode(Medal,
-                "Gold" = "Ouro",
-                "Silver" = "Prata")) %>% 
-  rename(Medalha = Medal) %>% 
+                        "Gold" = "Ouro",
+                        "Silver" = "Prata",
+                        "Bronze" = "Bronze")) %>%  
+  rename(Medalha = Medal) %>%
+  mutate(Medalha = fct_relevel(Medalha, "Ouro", "Prata", "Bronze")) %>%
   ggplot(aes(
-    x = fct_reorder(Names, quantidade, .desc = T), y = quantidade,
+    x = fct_reorder(Names, quantidade, .desc = TRUE), y = quantidade,
     fill = Medalha, label = legendas
   )) +
   geom_col(position = position_dodge2(preserve = "single", padding = 0)) +
   geom_text(
-    position = position_dodge(width = .9),
+    position = position_dodge(width = 0.9),
     vjust = -0.5, hjust = 0.5,
     size = 3
   ) +
   labs(x = "Atletas", y = "Frequência") + 
   theme_estat()
-ggsave("colunas-bi-freq.png", width = 158, height = 93, units = "mm", path = "C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/rdocs/images")
+ggsave("colunas-bi-freq.png", width = 158, height = 93, units = "mm")
+
+####### tabela de valores
+
+
+########################### ENTREGA 04 ###########################
+
+####### grafico dispersao
+
+dados_filtrados %>% 
+  mutate(`Height (cm)` = `Height (cm)` / 100,
+         `Weight (lbs)` = `Weight (lbs)` * 0.45359237) %>% 
+  ggplot() + 
+    aes(x = `Height (cm)`, y = `Weight (lbs)`) +
+    geom_point(colour = "#A11D21", size = 3, alpha = 0.3) +
+    labs(
+      x = "Altura dos atletas (m)",
+      y = "Peso dos atletas (kg)"
+    ) +
+    theme_estat()
+ggsave("disp_uni_pesoaltura.png", width = 158, height = 93, units = "mm")
+
+
+####### quadro resumo altura
+
+dados_filtrados %>%
+  filter(`Height (cm)` != "NA") %>% 
+  mutate(`Height (cm)` = `Height (cm)` / 100) %>% 
+  print_quadro_resumo(var_name = "Height (cm)")
+
+####### quadro resumo peso
+
+dados_filtrados %>% 
+  filter(`Weight (lbs)` != "NA") %>% 
+  mutate(`Weight (lbs)` = `Weight (lbs)` * 0.45359237) %>% 
+  print_quadro_resumo(var_name = "Weight (lbs)")
+
+#### boxplots altura
+
+ggplot(dados_filtrados %>%
+         filter(`Height (cm)` != "NA") %>% 
+         mutate(`Height (cm)` = `Height (cm)` / 100)) +
+  aes(x = factor(""), y = `Height (cm)`) +
+  geom_boxplot(fill = "#A11D21", width = 0.5) +
+  guides(fill = F) +
+  stat_summary(fun = "mean", geom="point", shape=23, size=3, fill="white") +
+  labs(x = "", y = "Altura (m)") +
+  theme_estat()
+ggsave("box_altura.pdf", width = 158, height = 93, units = "mm")
+
+##### boxplot peso
+
+ggplot(dados_filtrados %>% 
+         filter(`Weight (lbs)` != "NA") %>% 
+         mutate(`Weight (lbs)` = `Weight (lbs)` * 0.45359237) ) +
+  aes(x = factor(""), y = `Weight (lbs)`) +
+  geom_boxplot(fill = "#A11D21", width = 0.5) +
+  guides(fill = F) +
+  stat_summary(fun = "mean", geom="point", shape=23, size=3, fill="white") +
+  labs(x = "", y = "Peso (kg)") +
+  theme_estat()
+ggsave("box_peso.pdf", width = 158, height = 93, units = "mm")
+
+###### coeficiente de variação altura
+
+coef_var_altura <- dados_filtrados %>% 
+  filter(`Height (cm)` != "NA") %>% 
+    summarise(desv = round(sd(`Height (cm)`), 2),
+            media = mean(`Height (cm)`),
+            cv = (desv/media))
+
+coef_var_altura <- coef_var_altura %>% 
+  mutate(cv = scales::percent(cv))
+
+###### coeficiente de variação peso
+
+coef_var_peso <- dados_filtrados %>% 
+  filter(`Weight (lbs)` != "NA") %>% 
+  mutate(`Weight (lbs)` = `Weight (lbs)` * 0.45359237) %>%
+  summarise(desv = round(sd(`Weight (lbs)`), 2),
+            media = round(mean(`Weight (lbs)`), 2),
+            cv = (desv/media))
+
+coef_var_peso <- coef_var_peso %>% 
+  mutate(cv = scales::percent(cv))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

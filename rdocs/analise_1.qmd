@@ -1,0 +1,28 @@
+---
+title: "Projeto - Fantasma"
+
+# Nome do documento PDF gerado
+output-file: projeto fantasma
+---
+
+```{r source, cache=TRUE}
+#| include: false
+source("rdocs/source/packages.R")
+
+```
+
+# Análises
+
+## Top 5 países com mais medalhistas femininas
+
+A partir do acesso ao banco de dados disponibilizado pela "House of Excellence", tivemos acesso aos dados de todos os atletas que participaram das olimpíadas de 2000 até 2016. Nesse cenário, com o intuito de produzir um ranqueamento das cinco delegações que obtiveram mais conquistas nesse período nas modalidades femininas, do banco de dados original, foram utilizadas as variáveis de sexo, ainda foi utilizada a variável que descrevia qual país era a origem do atleta, sendo essa a base para agrupar as conquistas e, por último, a que continha os nomes das medalhistas, todas elas classificadas como qualitativas nominais, já que não existe ordem entre as categorias.
+
+![Gráfico de colunas do total de conquistas de cada delegação do Top 5](resultados/images/colunas-prop-medalha.png){#fig-prop fig-align="center" width="158mm"}
+
+Tendo a @fig-prop como referência podemos analisar que os Estados Unidos lideram a lista com 443 medalhistas, seguidos da delegação russa com 298- o que representa uma diferença de 145 entre o primeiro e o segundo colocado - em terceiro colocado está a China com 268, a Austrália na quarta posição com 219 e fechando o ranqueamento a Alemanha com 187, distanciando-se do penúltimo colocado por 32 atletas e em relação ao primeiro são 256- valor maior que as medalhistas da Austrália que ocupa o quarto lugar.
+
+Através da análise dos dados evidencia-se que dentre as modalidades femininas, durante os anos de 2000 a 2016 considerando todas as atletas que medalharam sem distinção entre ouro, prata e bronze, totalizam-se 3245 medalhistas. Dado o interesse da "House of Excelence" em entender o cenário das conquistas olímpicas femininas, foi contruída uma análise da frequência dessas atletas do *Top* 5 em relação ao total de atletas femininas. Assim por meio da @fig-prop, no *Top* 5 percebe-se que os Estados Unidos detém o topo do quadro de medalhas com 13,65%, seguido da Rússia que contém 9,18% , a China em terceiro com 8,,26%, a Austrália na quarta posição com 6,75% e fechando o ranqueamento a Alemanha com 5,76%.
+
+![Gráfico de setor da frequência de conquistas entre as delegações dentro e fora do Top 5](resultados/images/setor_paises.png){#fig-setor fig-pos="H" fig-align="center" width="158mm"}
+
+Para mais, a fim de esclarecer como os melhores países se comparam aos demais, diante da @fig-prop e da @fig-setor analisa-se que as delagações fora do "Top 5", totalizam 1830 medalhistas, o que representa 56,39% do todo. Nesse cenário, nota-se que os cinco países com melhor perfomance nos jogos possuem 1415, o que condiz a 43,61% de todas as conquistas.
