@@ -15,30 +15,38 @@ source("rdocs/source/packages.R")
 
 ## IMC por Esporte
 
-Diante do banco de dados, obteve-se acesso às variáveis quantitativas contínuas que descrevem o peso dos atletas em libras (lbs) e suas respectivas alturas em metros (m), tendo isso o Índice de Massa Corporal (IMC) de cada um dos atletas foi calculando, atribuindo uma nova variável ao banco que também é classificada como quantitativa contínua, para, assim, realizar as análises, além disso, durante os cálculos 14 atletas não tiveram ou suas alturas ou seus pesos computados no banco de dados e por isso foram retirados da variável que contabiliza todos os IMC's. Ainda, vale ressaltar que pelo interesse de observar como os valores de IMC se distribuem, agrupou-se os dados em relação aos Esportes de interesse, que são identificados como variável qualitativa nominal, a qual não tem distinção de ordem dentro da categoria, além disso, tanto homens, quanto mulheres foram agrupados igualmente, conforme suas categorias olímpicas - Atletismo, Badminton, Ginástica, Judô.
+Esta análise tem por objetivo comparar os valores do Índice de Massa Corporal (IMC) entre atletas de diferentes esportes, especificamente ginástica, judô, futebol, atletismo e badminton, para entender a variação entre eles e identificar se algum esporte tende a ter IMCs geralmente menores, maiores ou se não há diferença significativa. Para isso, foi utilizada como base de cálculo do IMC as variáveis quantitativas contínuas que descrevem o peso dos atletas em libras (lbs) e suas respectivas alturas em centímetros (cm), tendo isso, o IMC de cada um dos atletas foi calculado, realizando as conversões de unidade para estabelecer o padrão do índice que é kg/m².
 
-![Boxplot explicativo sobre seus elementos](rdocs/images/box_uni.png){#fig-e-box-expli fig-align="center" width="158mm"}
-
-Para analisar os dados obtidos serão utilizados *boxplots* como forma de visualização das informações e por meio da @fig-e-box-expli apresenta-se o padrão e estruturação deles.
-
-![Boxplot dos esportes de interesse pelo IMC](rdocs/images/box_bi.png){#fig-boxplot fig-pos="H" fig-align="center" width="158mm"}
+![Boxplot do IMC dos atletas pelos esportes de interesse](images/box_bi.png){#fig-boxplot fig-align="center" width="158mm"}
 
 ::: {#tbl-medidas layout-align="center" tbl-pos="H"}
-\begin{tabular}{ | l |         S[table-format = 2.2]         S[table-format = 1.2]         S[table-format = 2.2]         S[table-format = 2.2] |} \toprule     \textbf{Estatística} & \textbf{Atletismo} & \textbf{Badminton} & \textbf{Ginástica} & \textbf{Judô} \\     \midrule     Média & 22.30 & 22.21 & 20.68 & 25.70 \\     Desvio Padrão & 3.86 & 1.50 & 2.38 & 5.12 \\     Variância & 14.92 &  2.26 &  5.67 & 26.23 \\     Mínimo & 15.82 & 18.94 & 15.16 & 18.52 \\     1º Quartil & 20.03 & 21.22 & 18.61 & 22.06 \\     Mediana & 21.45 & 22.28 & 21.09 & 24.68 \\     3º Quartil & 23.67 & 23.21 & 22.48 & 27.70 \\     Máximo & 44.38 & 26.73 & 26.45 & 56.50 \\ \bottomrule \end{tabular}
+\begin{tabular}{ | l |
+            S[table-format = 2.2]
+            S[table-format = 1.2]
+            S[table-format = 2.2]
+            S[table-format = 2.2]
+            S[table-format = 2.2]
+            |}
+    \toprule
+        \textbf{Estatística} & \textbf{Atletismo} & \textbf{Badminton} & \textbf{Football} & \textbf{Ginástica} & \textbf{Judô} \\
+        \midrule
+        Média & 22.38 & 22.24 & 22.51 & 20.79 & 25.70 \\
+        Desvio Padrão & 3.97 & 1.52 & 1.73 & 2.40 & 5.12 \\
+        Variância & 15.75 &  2.32 &  2.99 &  5.75 & 26.23 \\
+        Mínimo & 15.82 & 18.94 & 16.73 & 15.16 & 18.52 \\
+        1º Quartil & 20.03 & 21.22 & 21.34 & 18.88 & 22.06 \\
+        Mediana & 21.46 & 22.28 & 22.49 & 21.10 & 24.68 \\
+        3º Quartil & 23.77 & 23.24 & 23.71 & 22.54 & 27.70 \\
+        Máximo & 44.38 & 26.73 & 29.07 & 26.45 & 56.50 \\
+        Coeficiente de Variação & \text{17.74\%} & \text{6.83\%} & \text{7.69\%} & \text{11.54\%} & \text{19.92\%} \\
+    \bottomrule
+    \end{tabular}
 
 Medidas resumo do IMC por esportes
 :::
 
-A partir da @tbl-medidas e da @fig-boxplot pode-se observar que o Judô possui maior média de IMC (25,70), isso significa 3,19 a mais que o segundo colocado - Futebol (22,51) - e maior mediana (24,68) entre os esportes, esta também é seguida pelo Futebol como segundo maior valor de mediana entre a população com 22,49, e por outro lado, a Ginástica tem a menor media (20,68), obtendo um valor mais baixo que quarto menor IMC médio - Badminton (22,21) - por uma diferença de 1,53, e menor mediana (21,09) dentre eles, com 0,36 a menos que o Atletismo (21,45). Além disso, consegue-se perceber que o Badminton possui, dentre os valores mínimos, o mais alto (18,94), 0,42 a frente do Judô (18,52), e a Ginástica o mais baixo (15,16), 0,66 a menos que o Atletismo. Já no quesito de maior valor obtido do índice de massa corporal entre os atletas está no Judô (56,50), 12,12 a mais que o Atletismo, e a Ginástica com o menor novamente (26,45), o que representa 0,28 a menos que Badminton.
+A partir da @tbl-medidas e da @fig-boxplot pode-se observar que o Judô tende a ter valores de IMC maiores que os demais por ter seus valores de centralidade - média e mediana - e de primeiro quartil maiores, o que significa que a maior parte dos dados possui valores acima dos outros esportes. Além disso, o Judô é o esporte que tem maior dispersão dos índices, percebido pelo maior coeficiente de variação e pelo intervalo interquartílico ser o maior, intervalo esse que é a distância entre o primeiro e o terceiro quartil - limite inferior e superior da caixa - bem como uma leve assimetria positiva, aquela que ocorre quando ocorre maior frequência de valores entre o primeiro quartil e a median. Contudo, ao observar os valores extremos, conclui-se que a ocorrência deles gera deslocamento da média para esses valores maiores.
 
-Outrossim, observando os valores de 1º Quartil, 3º Quartil, Mediana, Variância e Desvio Padrão, nota-se que o Badminton e Futebol possuem valores de IMC mais próximos de primeiro e de terceiro quartil, evidenciando estarem mais próximos da média, uma vez que a amplitude interquartílica representa 50% do total de todas as observações para a determinada classe. Ainda, percebe-se que para ambos os Esportes suas medianas, no caso do Badminton (22,28) e do Futebol (22,49) são também próximos da média, convergindo para o entendimento que há maior concentração dos valores em torno do valor médio. Sob outra perspectiva, o Judô é a modalidade que o valores estão mais dispersos na amostra, o que pode ser percebido pelo maior desvio padrão entre as modalidades (5,12), assim como a variância (26,23), bem como sua amplitude interquartil ser a maior entre os demais.
+Para os outros esportes, analisar existem tendências de IMCs menores fica menos nítido, como é no caso do Judô, uma vez que a Ginástica mesmo que com menor média possui assimetria negativa, quando os valores se tornam mais frequentes entre a mediana e o terceiro quartil - limite superior da caixa - e uma média pouco afetada por valores extremos, bem como ter uma amplitude interquartílica maior se comparada ao Badminton e Futebol. Já para o Atletismo, seus valores de quartis, de mediana são maiores, ao mesmo tempo que possui assimetria positiva, logo maior concentração entre primeiro quartil e mediana, se aproximando da Ginástica que tinha mais concentração para cima da caixa e, ainda, contém significativa amplitude como é a Ginástica e seu valor médio é afetado pelos diversos *outliers* acima do máximo estipulado no gráfico. Dessa forma, embora a Ginástica conter o menor valor de média e mediana, dificulta-se a análise de que tende a ter os menores índices por ambos esportes terem uma notória amplitude interquartílica, a Ginástica ter maior frequência para valores próximos do terceiro quartil e o Atletismo ter maior ocorrência dos valores próximos ao primeiro quartil, nota-se que é possível observar proximidade dos valores dos dois esportes.
 
-::: {#tbl-tex layout-align="center" tbl-pos="H"}
-\begin{tabular}{l|r}   \hline \multicolumn{1}{l|}{\textbf{Esportes}} & \multicolumn{1}{r}{\textbf{Coeficiente de Variação}} \\   \hline Atletismo & 17,32\% \\ Badminton & 6,77\% \\ Futebol & 7,68\% \\ Ginástica & 11,51\% \\ Judô & 19,93\% \\   \hline \end{tabular}
-
-Coeficiente de variação dos esportes de interesse
-:::
-
-Antes de analisar a @tbl-tex, é preciso observar que O coeficiente de variação auxilia ao fornecer a dispersão dos dados em relação à média de maneira mais clara, já que seus resultados representam percentualmente o quanto as classes estão concentradas em torno do valor médio. De uma maneira mais direta, quanto menor for o seu valor, mais homogêneos serão os dados, nesse caso homogêneo significa que os valores não assumem valores dispersos. Portanto, para metrificar o coeficiente de variação, entende-se como baixo (apontando um conjunto de dados homogêneo) quando for menor ou igual a 25%.
-
-Com a @tbl-tex podemos comprovar o que havia sido analisado outrora, dentre os demais esportes o que apresenta menor valor para o Coeficiente de Variação foi o Badminton (6,77%), ou seja, os atletas que praticaram essa modalidade durantes as olimpíadas tiveram os valores de IMC mais homogêneos em relação à média, seguido do Futebol (7,68%) - 0,91% de separação entre os dois - com 11,51% de coeficiente de variação está a Ginástica que dista 3,83% do Futebol e possui 5,81% a menos de coeficiente que o Atletismo (17,31%), este se distancia do Judô (19,93%) por 2,61%, evidenciando que o Judô é o que possui os valores mais dispersos, entretanto ainda se enquadrando como homogêneo.
+Por outro lado, ao observar a dispersão e assimetria, percebe-se que o badminton é o esporte mais concentrado em relação aos demais, já que sua caixa é a mais achatada, o que indica que a maioria dos valores gira em torno da média - não afetada por valores extremos - e da mediana, que para esse caso tem todos os seus dados praticamente simétricos, já que seus valores de centralidade são signifcativamente próximos e a mediana próxima da metade do boxplot. Poranto, evidencia-se que os índices para o Badminton são concentrados, pouco assimétrico e, por isso, é plausível compreender uma tendência do esporte conter majoritariamente valores em torno da média. Caso que também pode ser percebido para o futebol, entretanto com menor intensidade, posto que possui maior amplitude interquartílica e mais influência de *outliers.*

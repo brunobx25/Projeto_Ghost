@@ -180,8 +180,6 @@ ggsave("setor_paises.png", width = 158, height = 93, units = "mm", path = "C:/Us
 
 "1 pound (avoirdupois)= 0.45359237 kilogram"
 
-
-
 imc_bruto <- dados_brutos %>% 
   filter(Sport %in% c("Athletics","Gymnastics", "Judo", "Badminton"),
          !is.na(Medal)) %>% 
@@ -192,13 +190,6 @@ imc_bruto <- dados_brutos %>%
                         "Badminton" = "Badminton",  
                         "Gymnastics" = "Ginástica")) 
 
-sum(is.na(imc_bruto$`Weight (lbs)`))
-sum(is.na(imc_bruto$`Height (cm)`))
-which(is.na(imc_bruto$`Height (cm)`))
-which(is.na(imc_bruto$`Weight (lbs)`))
-
-#14 NA´s totais 
-
 imc_limpo <- imc_bruto %>% 
   mutate(`Peso(kg)` = `Weight (lbs)`*0.45359237,
          `Altura(m^2)` = (`Height (cm)`/100)^2,
@@ -208,18 +199,21 @@ imc_limpo <- imc_bruto %>%
   
 ### 14 observações que tinham dados incompletos no banco de dados
 
-imc <- dados_brutos%>%
-  mutate(
-    Height_m = `Height (cm)` / 100,  
-    Weight_kg = `Weight (lbs)` * 0.453592,  
-    IMC = Weight_kg / (Height_m^2)  
-  ) %>%
-  filter(
-    Sport %in% c("Gymnastics", "Judo", "Athletics", "Badminton"),  
-    Medal %in% c("Gold", "Silver", "Bronze")  
-  ) %>%
-  distinct()
-
+dados_imc <- dados_filtrados %>% 
+  filter(Sport %in% c("Gymnastics","Football", "Judo", "Athletics", "Badminton")) %>% 
+  mutate(Sport = recode(Sport,
+                        "Athletics" = "Atletismo",
+                        "Judo" = "Judô",
+                        "Badminton" = "Badminton",  
+                        "Gymnastics" = "Ginástica",
+                        "Football" = "Futebol")) %>% 
+  mutate(`Peso(kg)` = `Weight (lbs)`*0.45359237,
+         `Altura(m^2)` = (`Height (cm)`/100)^2,
+         IMC = `Peso(kg)`/`Altura(m^2)`) %>%
+  select(Names, Ano, Sport, IMC) %>% 
+  filter(!is.na(IMC)) %>% 
+  distinct(Names, Ano, .keep_all = T)
+  
 ##### Funcao quadro resumo
 
 print_quadro_resumo <- function(data, var_name, title="", label="")
@@ -299,29 +293,29 @@ print_quadro_resumo <- function(data, var_name, title="", label="")
   
 }
 
-imc_limpo %>% 
+dados_imc %>% 
   group_by(Sport) %>% 
-  print_quadro_resumo(var_name = imc)
+  print_quadro_resumo(var_name = IMC)
 
 #### Boxplots
 
-imc_limpo  %>% 
-  ggplot(aes(x = reorder(Sport, imc, FUN = median), y = imc)) +
+dados_imc  %>% 
+  ggplot(aes(x = reorder(Sport, IMC, FUN = median), y = IMC)) +
   geom_boxplot(fill = c("#A11D21"), width = 0.5)+
   stat_summary(
     fun = "mean", geom = "point", shape = 23, size = 3, fill = "white"
   ) + 
-  labs(x = "Esportes de interesse", y = "IMC dos atletas (kilograma/metro^2)") +
+  labs(x = "Esportes de interesse", y = "IMC dos atletas (kg/m²)") +
   theme_estat()
-ggsave("box_bi.png", width = 158, height = 93, units = "mm", path = "C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/rdocs/images")  
+ggsave("box_bi.png", width = 158, height = 93, units = "mm", path = "C:/Users/Bruno/OneDrive/Documentos/GitHub/Projeto_Ghost/resultados/images")  
 
 
 ###### Coeficiente de variação (sd/mean) * 100 (%)
 
-coef_var <- imc_limpo %>% 
+coef_var <- dados_imc %>% 
   group_by(Sport) %>% 
-  summarise(desv = sd(imc),
-         media = mean(imc),
+  summarise(desv = round(sd(IMC), 2),
+         media = round(mean(IMC), 2),
          cv = (desv/media))
 
 coef_var <- coef_var %>% 
@@ -501,7 +495,7 @@ ggplot(dados_filtrados %>%
   stat_summary(fun = "mean", geom="point", shape=23, size=3, fill="white") +
   labs(x = "", y = "Altura (m)") +
   theme_estat()
-ggsave("box_altura.pdf", width = 158, height = 93, units = "mm")
+ggsave("box_altura.png", width = 158, height = 93, units = "mm")
 
 ##### boxplot peso
 
@@ -514,7 +508,7 @@ ggplot(dados_filtrados %>%
   stat_summary(fun = "mean", geom="point", shape=23, size=3, fill="white") +
   labs(x = "", y = "Peso (kg)") +
   theme_estat()
-ggsave("box_peso.pdf", width = 158, height = 93, units = "mm")
+ggsave("box_peso.png", width = 158, height = 93, units = "mm")
 
 ###### coeficiente de variação altura
 
