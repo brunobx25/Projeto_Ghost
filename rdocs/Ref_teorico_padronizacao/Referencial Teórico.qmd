@@ -368,9 +368,8 @@ Onde:
 
 O teste de hipóteses tem como objetivo fornecer uma metodologia para verificar se os dados das amostras possuem indicativos que comprovem, ou não, uma hipótese previamente formulada. Ele é composto por duas hipóteses:
 
-```{=latex}
 \hipoteses{hipótese a ser testada (chamada de hipótese nula)}{hipótese alternativa que será aceita caso a hipótese nula seja rejeitada}
-```
+
 Essa decisão é tomada por meio da construção de uma região crítica, ou seja, região de rejeição do teste.
 
 ## Tipos de teste: bilateral e unilateral
@@ -425,9 +424,8 @@ Os testes de normalidade são utilizados para verificar se uma variável aleató
 
 O **Teste de Shapiro-Wilk** é utilizado para verificar a aderência de uma variável quantitativa ao modelo da Distribuição Normal, sendo mais recomendado para amostras pequenas. A suposição de normalidade é importante para a determinação do teste a ser utilizado. As hipóteses a serem testadas são:
 
-```{=latex}
 \hipoteses{A variável segue uma distribuição Normal}{A variável segue outro modelo}
-```
+
 A amostra deve ser ordenada de forma crescente para que seja possível obter as estatísticas de ordem. A estatística do teste é dada por:
 
 $$ W = \frac{1}{D} \left[ \sum_{i=1}^{k} a_{i} \left(X_{(n-i+1)} - X_{(i)}\right) \right] $$
@@ -448,11 +446,10 @@ O **teste de Kolmogorov-Smirnov** é usado para determinar se duas distribuiçõ
 
 O teste possui as seguintes hipóteses:
 
-```{=latex}
 \begin{center}
 \hipoteses{A variável segue o modelo proposto}{A variável segue outro modelo}
 \end{center}
-```
+
 Se a hipótese nula é verdadeira, espera-se que as diferenças entre $F_0(x)$ e $S_n(x)$ sejam pequenas e estejam dentro dos limites dos erros aleatórios. O teste de Kolmogorov-Smirnov focaliza a maior dessas diferenças. No caso do teste de normalidade de Kolmogorov-Smirnov, a função de distribuição acumulada teórica $F_0(x)$ é a função de distribuição acumulada da normal, com média e variância estimadas pela amostra. Este teste é mais recomendado para amostras grandes sem *outliers*.
 
 ## Teste de Normalidade de Lilliefors
@@ -465,22 +462,20 @@ A diferença entre a estatística $T$ de Kolmogorov e $T_1$ de Lilliefors é que
 
 O teste possui as seguintes hipóteses:
 
-```{=latex}
 \begin{center}
 \hipoteses{A variável segue o modelo proposto}{A variável segue outro modelo}
 \end{center}
-```
+
 Se a hipótese nula é verdadeira, espera-se que as diferenças entre $F_0(x)$ e $S_n(x)$ sejam pequenas e estejam dentro dos limites dos erros aleatórios.
 
 ## Teste de Normalidade de Anderson-Darling
 
 O **teste de Normalidade de Anderson-Darling** é utilizado para verificar se uma amostra aleatória $X_1, X_2, ..., X_n$ de uma variável quantitativa segue uma distribuição Normal de probabilidade ou não. O teste possui as seguintes hipóteses:
 
-```{=latex}
 \begin{center}
 \hipoteses{A variável segue uma distribuição Normal}{A variável segue outro modelo}
 \end{center}
-```
+
 Se a hipótese nula for verdadeira, espera-se que o p-valor esteja acima do nível de significância $\alpha$.
 
 # Teste de Homogeneidade de Variância
@@ -509,9 +504,8 @@ Com: - $\displaystyle c = 1 + \frac{1}{3(3k-1)}\left(\sum_{i=1}^{k} \frac{1}{n_i
 
 As hipóteses do teste são:
 
-```{=latex}
 \hipoteses{Todas as populações possuem mesma variância}{Ao menos uma população possui variância diferente das demais}
-```
+
 Sob $H_0$, rejeita-se a hipótese nula de igualdade de variâncias das $k$ populações a um nível $\alpha$ de significância se a estatística do teste assumir valor superior ao quantil crítico respectivo da distribuição Qui-Quadrado com $k-1$ graus de liberdade.
 
 ## Teste de Homogeneidade de Variância de Breusch-Pagan
@@ -535,9 +529,8 @@ onde $\displaystyle \sum^n_{i=1}\left(\hat{y_i} - \bar{y}\right)^2$ é a Soma de
 
 O teste possui as seguintes hipóteses:
 
-```{=latex}
 \hipoteses{As variâncias dos erros são iguais}{As variâncias dos erros são diferentes e função multiplicativa de outras variáveis}
-```
+
 Sob $H_0$, rejeita-se a hipótese nula de igualdade de variâncias dos erros a um nível $\alpha$ de significância se a estatística do teste assumir valor superior ao quantil crítico respectivo da distribuição Qui-Quadrado com $1$ grau de liberdade.
 
 ## Teste de Homogeneidade de Variância de Levene
@@ -556,11 +549,10 @@ para $i=1,2,...,k$ e $j=1,2,...,n_i$ com $k$ sendo o número de subgrupos, em qu
 
 Com isso, tem-se a estatística do teste:
 
-```{=latex}
 \begin{equation}
 F^* = \frac{\displaystyle \sum_{i=1}^{k}\frac{n_i(\bar{z}_{i.} - \bar{z}_{..})^2}{(k-1)}}{\frac{\displaystyle \sum_{i=1}^{k}\displaystyle \sum_{j=1}^{n_i}(z_{ij}-\bar{z}_{i.}^2)}{\displaystyle \sum_{i=1}^{k}(n_i-1)}} \nonumber
 \end{equation}
-```
+
 Sendo que:
 
 $$ \bar{z}_{i.} = \sum_{i=1}^{k}\frac{z_{ij}}{n_{i}} $$
@@ -571,9 +563,8 @@ Sabe-se que $F^* \approx F(k,N-k-1)$.
 
 Após a transformação dos dados originais, aplica-se o teste da ANOVA nos dados transformados. Assim, testa-se as seguintes hipóteses:
 
-```{=latex}
 \hipoteses{Todas as populações possuem mesma variância}{Ao menos uma população possui variância diferente das demais}
-```
+
 Sob $H_0$, rejeita-se a hipótese nula de igualdade de variâncias a um nível $\alpha$ de significância se a estatística do teste $F^*$ assumir valor superior ao quantil crítico respectivo da distribuição $F(k,N-k-1)$.
 
 ## Teste F de Igualdade de Variância
@@ -586,9 +577,8 @@ $$ \frac{S^2_X}{S^2_Y} \approx F(n - 1, m - 1) $$
 
 Testa-se as seguintes hipóteses:
 
-```{=latex}
 \hipoteses{$X$ e $Y$ possuem mesma variância populacional}{$X$ e $Y$ não possuem mesma variância populacional}
-```
+
 Caso os valores de $S^2_X$ e $S^2_Y$ sejam próximos, é esperado que o valor da estatística do teste esteja próximo de um e, assim, não deve-se rejeitar $H_0$. Caso esses valores estejam distantes, a estatística do teste se distanciará de um, levando à rejeição da hipótese nula de variâncias iguais.
 
 ## Teste de Variância Constante de White
@@ -597,18 +587,16 @@ O **teste de White** permite verificar se a variância é constante em um modelo
 
 As hipóteses do teste são:
 
-```{=latex}
 \hipoteses{Variância é constante}{Variância não é constante}
-```
+
 ## Teste de Homogeneidade de Variância de Brown-Forsythe
 
 O **teste de Brown-Forsythe** é um teste utilizado para verificar se a variância dos erros de um modelo de regressão linear simples é constante para diferentes valores da variável explicativa $X$. É uma modificação do teste de Levene, dessa forma, não depende da normalidade dos erros do modelo. Isto é, ele é um teste robusto para afastamentos sérios da normalidade dos erros. O tamanho da amostra deve ser suficientemente grande de modo que a dependência entre os resíduos possa ser ignorada.
 
 As hipóteses do teste são:
 
-```{=latex}
 \hipoteses{A variância dos erros é constante}{A variância dos erros não é constante}
-```
+
 O primeiro passo é dividir a amostra $X_1, X_2, \ldots, X_n$ em dois grupos de acordo com os níveis da variável explicativa $X$:
 
 -   O grupo 1 é formado pelas observações de $X$ com nível baixo: $e_{i1}$ é o i-ésimo resíduo do grupo 1, $i = 1, \ldots, n_1$.
@@ -636,9 +624,8 @@ Considere duas amostras dependentes $x_1, \ldots, x_n$ e $y_1, \ldots, y_n$, em 
 
 As hipóteses do teste são:
 
-```{=latex}
 \hipoteses{$\mu_D = 0$}{$\mu_D \neq 0$}
-```
+
 Em que $\mu_D$ é a média populacional das diferenças e é obtida por $\mu_D = \mu_X - \mu_Y$, sendo $\mu_X$ e $\mu_Y$ as médias correspondentes às populações de $X$ e $Y$, respectivamente. Ou seja, está-se testando se a média da diferença é 0 ou não.
 
 Os parâmetros $\mu_D$ e $\sigma_D^2$ são estimados pela média e variância amostrais:
@@ -657,9 +644,8 @@ O critério de decisão utilizado para se rejeitar ou não a hipótese nula é a
 
 Considere observações pareadas ${(X_1, Y_1), \ldots, (X_n, Y_n)}$. Existe interesse em comparar se as medidas de posição de duas amostras são iguais no caso em que as amostras são dependentes. Não há necessidade de haver normalidade nos dados para este teste. Seja $D_i = x_i - y_i$, para $i = 1, \ldots, n$. Então, a amostra $D_1, \ldots, D_n$ é obtida a partir das diferenças entre os valores de cada par. As hipóteses deste teste são:
 
-```{=latex}
 \hipoteses{$D$ segue uma distribuição simétrica em torno de zero}{$D$ não segue uma distribuição simétrica em torno de zero}
-```
+
 O teste é feito a partir da ordenação da variável $D_i$ e postos (ou ranks) são atribuídos a cada observação. Algumas observações podem receber a mesma posição na ordenação. Esse fenômeno é denominado empate. Os postos são calculados da seguinte maneira:
 
 $$R_i =
@@ -682,9 +668,8 @@ Rejeita-se a hipótese nula se $T^+$ está fora da região de aceitação, a um 
 
 Considere duas amostras independentes $(x_1, \ldots, x_n)$ e $(y_1, \ldots, y_m)$. O objetivo é comparar as médias dessas populações, verificando se podem ser consideradas iguais ou não. Sabendo que as variâncias populacionais são conhecidas e sob a suposição de normalidade nos dados em ambas as populações (simetria nos dados), testa-se as seguintes hipóteses:
 
-```{=latex}
 \hipoteses{$\mu_X=\mu_Y$}{$\mu_X \neq \mu_Y$}
-```
+
 Sendo $\mu_X$ e $\mu_Y$ as médias correspondentes às populações de $X$ e $Y$, respectivamente. Os parâmetros $\mu_X$ e $\mu_Y$ são estimados pelas médias amostrais:
 
 $$
@@ -710,9 +695,8 @@ O critério de decisão utilizado para se rejeitar ou não a hipótese nula é a
 
 Considere duas amostras independentes $x_1, \ldots, x_n$ e $y_1, \ldots, y_m$. Existe interesse em comparar as médias dessas populações, verificando se podem ser consideradas iguais ou não. Sob a suposição de normalidade nos dados em ambas as populações (simetria nos dados) e igualdade entre suas variâncias, $\sigma_X^2 = \sigma_Y^2 = \sigma^2$, testa-se as seguintes hipóteses:
 
-```{=latex}
 \hipoteses{$\mu_X=\mu_Y$}{$\mu_X \neq \mu_Y$}
-```
+
 Sendo $\mu_X$ e $\mu_Y$ as médias correspondentes às populações de $X$ e $Y$, respectivamente. Os parâmetros $\mu_X$ e $\mu_Y$ são estimados pelas médias amostrais:
 
 $$
@@ -755,9 +739,8 @@ O critério de decisão utilizado para se rejeitar ou não a hipótese nula é a
 
 Considere duas amostras independentes $(x_1,\, \ldots , \, x_n)$ e $(y_1,\, \ldots , \, y_m)$. Existe interesse em comparar as médias dessas populações, verificando se podem ser consideradas iguais ou não. Sob a suposição de normalidade nos dados em ambas as populações (simetria nos dados) e diferença entre suas variâncias, $\sigma_X^2 \neq \sigma_Y^2$, testa-se as seguintes hipóteses:
 
-```{=latex}
 \hipoteses{$\mu_X=\mu_Y$}{$\mu_X \neq \mu_Y$}
-```
+
 Sendo $\mu_X$ e $\mu_Y$ as médias correspondentes às populações de $X$ e $Y$, respectivamente. Os parâmetros $\mu_X$ e $\mu_Y$ são estimados pelas médias amostrais:
 
 $$
@@ -797,7 +780,6 @@ A um nível de significância $\alpha$ de erro, sob a hipótese $H_{0}$ verdadei
 
 ## Teste de Wilcoxon-Mann-Whitney
 
-```{=latex}
 O teste de Wilcoxon-Mann-Whitney ou apenas Mann-Whitney é utilizado para comparar dois grupos independentes sem supor nenhuma distribuição. Isso ocorre pois o teste baseia-se em postos atribuídos a cada observação da variável quantitativa após serem ordenadas. O teste considera as hipóteses:
 
 \hipoteses{As populações têm a mesma distribuição}{As populações têm distribuições distintas} 
@@ -841,7 +823,7 @@ Com:
 \end{itemize}
 
 \end{itemize}
-```
+
 ## Análise de Variância (ANOVA)
 
 A Análise de Variância, mais conhecida por ANOVA, consiste em um teste de hipótese, em que é testado se as médias dos tratamentos (ou grupos) são iguais. Os dados são descritos pelo seguinte modelo:
@@ -862,12 +844,11 @@ No modelo, $\mu$ é a média geral dos dados e $\alpha_i$ é o efeito do tratame
 
 A variabilidade total pode ser decomposta na variabilidade devida aos diferentes tratamentos somada à variabilidade dentro de cada tratamento:
 
-```{=latex}
 \begin{align*}
 \text{Soma de Quadrados Total (SQTOT)} &= \text{Soma de Quadrados de Tratamento (SQTRAT)} \\
 &+ \text{Soma de Quadrados de Resíduos (SQRES)}
 \end{align*}
-```
+
 Sendo o estudo não balanceado, ou seja, quando os tratamentos possuem tamanhos de amostra distintos:
 
 $$
@@ -894,9 +875,8 @@ Em que:
 
 As hipóteses do teste são:
 
-```{=latex}
 \hipoteses{As médias dos \textit{a} tratamentos são iguais}{Existe pelo menos um par de médias diferente}
-```
+
 A estatística do teste é composta pelo Quadrado Médio de Tratamento (QMTRAT) e Quadrado Médio de Resíduos (QMRES), sendo a definição de Quadrado Médio a divisão da Soma de Quadrados pelos seus graus de liberdade. Por conta da suposição de Normalidade dos erros no modelo, a estatística do teste, $F$, tem distribuição F de Snedecor com $(a - 1)$ e $(\sum_{i=1}^a n_i - a)$ graus de liberdade.
 
 $$
@@ -905,7 +885,6 @@ $$
 
 A hipótese nula é rejeitada caso o p-valor seja menor que o nível de significância pré-fixado. A Tabela $\ref{tab:anova}$ abaixo resume as informações anteriores:
 
-```{=latex}
 \begin{table}[H]
 \centering
 \caption{Tabela de Análise de Variância}
@@ -922,14 +901,13 @@ A hipótese nula é rejeitada caso o p-valor seja menor que o nível de signific
 \end{tabular}
 \label{tab:anova}
 \end{table}
-```
+
 ## Teste de Fisher LSD
 
 Após a rejeição da hipótese nula da Análise de Variância (ANOVA), deve-se identificar quais médias diferem. Para isso, é utilizado o teste de Fisher LSD, tendo como objetivo comparar as médias duas a duas. Consiste em realizar múltiplos testes t de comparação de médias, cada um com nível de significância $\alpha$. As hipóteses são:
 
-```{=latex}
 \hipoteses{$\mu_i=\mu_j$}{$\mu_i \neq \mu_j$}
-```
+
 A estatística do teste é dada por:
 
 $$T = t_{(\alpha/2; \: GL_{res})}\sqrt{\left(\frac{1}{n}+\frac{1}{m}\right)QM_{res}}$$
@@ -1178,7 +1156,6 @@ O teste de correlação de McNemar tem como objetivo verificar se existem mudan�
 
 Para a realização do teste, uma tabela 2x2 é feita que auxilia a testar a significância de qualquer mudança.
 
-```{=latex}
 \begin{table}[H]
 \centering
 \begin{tabular}{c|cc}
@@ -1190,7 +1167,7 @@ Para a realização do teste, uma tabela 2x2 é feita que auxilia a testar a sig
 \textbf{-}      & C         & D               
 \end{tabular}
 \end{table}
-```
+
 Por meio dessa tabela, verifica-se que o número total de elementos que tiveram alguma mudança é a soma das células B e C. Então, essas são as células de interesse do teste.
 
 As hipóteses podem ser escritas como:
@@ -1221,7 +1198,6 @@ A estatística utilizada nesse teste é dada pela número de observações prese
 
 A estatística $T$ do teste, considerando $H_{0}$ verdadeira, tem distribuição:
 
-```{=latex}
 \begin{itemize}
     \item [\bf a)] \textbf{Exata} dada pela distribuição hipergeométrica:
     $$ P(T = O_{11}) = \frac{\binom{n_{1}}{O_{11}} \binom{N - n_{1}}{c_{1} - O_{11}}}{\binom{N}{c_{1}}} $$
@@ -1236,7 +1212,7 @@ A estatística $T$ do teste, considerando $H_{0}$ verdadeira, tem distribuição
     
     \item [\bf b)] \textbf{Aproximada}, para grandes amostras, para a distribuição Qui-Quadrado com 1 grau de liberdade se o teste for bilateral, ou distribuição Normal se o teste for unilateral.
 \end{itemize}
-```
+
 ## Teste de Correlação de Pearson
 
 O coeficiente de correlação linear de Pearson indica a força e a direção do relacionamento linear entre duas variáveis quantitativas. É um índice adimensional com valores situados entre -1 e 1, no qual o valor -1 representa total correlação linear negativa entre as variáveis (quando o valor de uma variável cresce, o valor da outra diminui) e o valor 1 representa total correlação linear positiva entre elas (ambas crescem simultaneamente). Esse coeficiente é obtido por meio da fórmula:
@@ -1320,7 +1296,6 @@ As hipóteses para esse teste podem ser escritas como: \hipoteses{$X$ e $Y$ são
 
 A estatística do teste pode ter duas formas que variam conforme a presença de empates entre os pares:
 
-```{=latex}
 \begin{itemize}
     \item [\bf a)] \textbf{Sem empates:} $\displaystyle \tau = N_{c} - N_{d}$
     
@@ -1354,14 +1329,13 @@ Para realizar a comparação dos pares e concluir se serão concordantes ou disc
     
     \item Se $X_{j} = X_{i}$, não há comparação
 \end{itemize}
-```
+
 ## Correlação Parcial de Kendall
 
 Em alguns casos, quando se observa a correlação entre duas variáveis, há possibilidade de que essa relação ocorra devido à associação de cada uma dessas variáveis com uma terceira. Na correlação parcial, os efeitos desta terceira variável ($Z$) sobre as outras duas variáveis ($X$ e $Y$) são controlados, mantendo-a constante.
 
 Para o cálculo desse coeficiente, comparam-se os postos atribuídos às observações em cada variável. Os postos representam a posição que um determinado valor da variável ocuparia se os dados estivessem ordenados de forma crescente. Assim, esses postos são atribuídos aos valores das três variáveis de forma independente do resultado das outras. Em seguida, são formados pares para os postos e esses pares são colocados de forma que as observações de $Z$ estejam em ordem crescente. Tomando essa ordem como base, é verificado se os postos atribuídos a $X$ e a $Y$ para esses pares estão dispostos em ordem crescente ou decrescente. Dessa forma, utiliza-se uma tabela 2x2 para expressar a frequência de pares discordantes (os postos $X$ ou $Y$ decrescem) e concordantes (os postos de $X$ ou $Y$ crescem) das variáveis $X$ e $Y$ em relação a $Z$.
 
-```{=latex}
 \begin{table}[H]
 \centering
 \begin{tabular}{c|cc}
@@ -1391,7 +1365,7 @@ Para o cálculo desse coeficiente, comparam-se os postos atribuídos às observa
     
     \item Se $X$ e $Y$ forem discordantes, então a frequência é atribuída à célula $D =$ (-, -)
 \end{itemize}
-```
+
 Portanto, o coeficiente de correlação parcial por postos de Kendall entre duas variáveis, considerando uma terceira variável como constante, é dado por:
 
 $$ \tau_{XY, Z} = \frac{AD - BC}{\sqrt{(A + D)(C + D)(A + C)(B + D)}} $$
@@ -1467,7 +1441,6 @@ $$\hat{RC}=\frac{\hat{chance}_1}{\hat{chance}_2}=\frac{\frac{p_1}{1-p_1}}{\frac{
 
 ## Intervalo de Confiança para a Razão de Chances
 
-```{=latex}
 \par O intervalo de confiança de 95\% de probabilidade para a razão de chances pode ser obtido da seguinte maneira:
 
 $$IC(\hat{RC})_{95\%}=exp\{log(\hat{RC})\pm z_{(\alpha/2)}\times\sqrt{\hat{Var}(log(\hat{RC})}\}$$
@@ -1487,10 +1460,9 @@ $$IC(\hat{RC})_{95\%}=exp\{log(\hat{RC})\pm z_{(\alpha/2)}\times\sqrt{\hat{Var}(
 \end{itemize}
 
 \par Caso o intervalo de confiança de 95\% de probabilidade não inclua o valor 1, conclui-se que a chance de ocorrência do evento é estatisticamente diferente entre os grupos, com 5\% de significância.
-```
+
 ## Risco Relativo
 
-```{=latex}
 \par Se um evento ocorre com probabilidade $p_1$ em um grupo e $p_2$ em outro grupo, define-se o risco relativo como:
 
 $$RR=\frac{p1}{p2}$$
@@ -1502,7 +1474,7 @@ $$RR=\frac{p1}{p2}$$
     
     \item Valores de RR maiores que 1 indicam que a probabilidade do evento ocorrer em indivíduos do grupo 1 é menor que a probabilidade do evento ocorrer em indivíduos do grupo 2
 \end{itemize}
-```
+
 # Análise de Regressão
 
 ## Análise de Regressão Linear
@@ -1738,7 +1710,6 @@ Para as variáveis qualitativas, pode-se transformá-las em variáveis quantitat
 
 Considere a seguinte tabela:
 
-```{=latex}
 \begin{table}[H]
 \centering
 \caption{Representação para exemplo}
@@ -1753,7 +1724,7 @@ Considere a seguinte tabela:
 \bottomrule
 \end{tabular}
 \end{table}
-```
+
 onde $a$ é a frequência do par (1,1), $b$ representa o par (1,0), e assim por diante. Pela tabela, podem-se desenvolver os coeficientes de similaridade:
 
 **I) Concordância simples:**

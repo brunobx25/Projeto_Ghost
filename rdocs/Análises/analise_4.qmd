@@ -1,0 +1,61 @@
+---
+title: "Projeto - Fantasma"
+
+# Nome do documento PDF gerado
+output-file: analise 4
+---
+
+# Análises
+
+## Variação Peso por Altura
+
+O intuito neste momento é entender a relação entre o peso e altura dos medalhistas olímpicos e para isso a variável que armazena os pesos dos atletas em libras e a que representa as alturas em centímetros, ambas as variáveis são classificadas como quantitativas contínuas. Diante desses dados, visando atingir o interesse dessa análise, foram cotruídos o gráfico e aos quadros a seguir.
+
+![Gráfico de dispersão da altura pelo peso dos atletas](images/disp_uni_pesoaltura-05.png){#fig-disp fig-align="center" width="158mm"}
+
+![Boxplot da Altura dos atletas](images/box_altura.png){#fig-box-alt fig-pos="H" fig-align="center" width="158mm"}
+
+![Boxplot do Peso dos atletas](images/box_peso.png){#fig-box-peso fig-pos="H" fig-align="center" width="158mm"}
+
+\begin{quadro}[H]
+    \caption{Medidas resumo da Altura (m) e do Peso (kg) dos atletas}
+    \centering
+    \begin{tabular}{ | l |         S[table-format = 2.2]         S[table-format = 3.2] |} 
+      \toprule     
+      \textbf{Estatística} & \textbf{Altura} & \textbf{Peso}  \\    
+      \midrule
+        Média & 178.24 & 74\\
+            Desvio Padrão & 11.8 & 16.26\\
+            Variância & 139.23 & 264.26 \\
+            Mínimo & 137 & 28 \\
+            1º Quartil & 170 & 62\\
+            Mediana & 178 & 72 \\
+            3º Quartil & 186 & 84 \\
+            Máximo & 219 & 175 \\
+            Coeficiente de Variação & \text{7\%} & \text{22\%} \\
+        \bottomrule
+    \end{tabular}
+    \label{quadaltpeso}
+\end{quadro}
+\begin{quadro}[H]
+    \caption{Coeficiente de correlação de Pearson para Altura (m) e Peso (kg) dos atletas}
+    \centering
+    \begin{tabular}{ | l |         S[table-format = 2.3]   | } 
+      \toprule     
+      \textbf{Estatística} & \textbf{Valor} \\    
+      \midrule
+          Coeficiente de Correlação & 0,805\\
+        \bottomrule
+    \end{tabular}
+    \label{quadcoef}
+\end{quadro}
+
+Ao observar a @fig-disp, é perceptível que a maioria dos atletas, os quais são representados pelos pontos no gráfico estão agrupados abaixo das cem kilogramas, tal análise também pode ser feita percebendo que a maioria possui altura inferior aos a dois metros. Agora, visualmente, analisando a dispersão dos pontos na imagem é fácil compreender que a maior concentração deles sugere que quanto maior a altura dos atletas maior será seu peso, uma vez que o conjunto de pontos mais próximos uns dos outros supôem uma correlão positiva forte dos dados, isso acontece quando os pontos se assemelham a uma reta crescente. Ainda, nota-se que essa relação é evidenciada pelo $\ref{quadcoef}$,uma vez que para o coeficiente de correlação de Pearson valores próximos de 1 e -1 indicam associação, neste caso por obter 0,805 as duas variáveis são correlacionadas no sentido de serem diretamente proporcionais, o que quer dizer que ao passo que a Altura aumenta o peso também aumenta. Dessa forma, concluisse que a associação linear é de 80,53% entre as duas variáveis.
+
+Através da @fig-box-altura pode-se perceber que pelo valor de mediana (178 cm) estar centralizado na caixa, visualizado por meio da @fig-box-altura, bem como, numericamente ela estar exatamente na metade dos quartis, observando na $\ref{quadaltpeso}$ o primeiro é 170 e o terceiro 186, concluisse, então que existe simetria dos valores, que significa dizer quea frequeência dos valores de altura estão distribuídos de forma simétrica em torno da média e da mediana. Ainda, nota-se que os valores de máximo e mínimo apresentam distancia semelhante em relação à caixa, além de possuir valores extremos que também se distribuem de maneira semelhante tanto para cima, quanto para baixo, contudo, importante ressaltar que a média (178,24 cm) é levemente influenciada por esses valores extremos acima.
+
+Diante da @fig-box-peso nota-se, diferentemente da altura, haver maior assimetria dos dados dos pesos dos atletas. Em primeira análise, destaca-se do gráfico que sua mediana está deslocada do centro da caixa em direção ao primeiro quartil, o que representa, neste caso, que há assimetria positiva, isso ocorre quando existe maior ocorrência de valores que númericamente são próximos no intervalo entre o primeiro quartil e a mediana. Para mais, observando os valores extremos, percebe-se que existe maior quantidade deles a acima do máximo estipulado na contrução do gráfico, tal fato corrobora à análise da $\ref{quadaltpeso}$ sobre a média ser influenciada por esses valores extremos e se distanciar da mediana.
+
+Para mais, estudando a $\ref{quadaltpeso}$ destaca-se que a média de altura dos atletas é de 1,78 metros, assim como sua mediana - termo esse que divide em 50% porcento todas as observações em ordem cresecente, logo conclui-se que para este caso a média não tem seus valores afetados por valores extremos -ainda, verificam-se valores de mínimo em 1,37 e máximo em 2,19. Contudo, mesmo com uma disparidade alta entre máximo e mínimo, nota-se que os dados estão bastante concentrados, o que pode ser percebido pelo desvio padrão de 11,28 centímetros e reforçado ao analisar a medida do coeficiente de variação - índice que determina quando o desvio padrão representa em relação à média - observa-se apenas um valor de 7%, corroborando ao entendimento de uma alta homogeneidade dos dados e uma baixa dispersão da altura.
+
+Outrossim, por meio da $\ref{quadaltpeso}$ analisa-se um valor médio de 74 kilogramas e com sua mediana em 72 kg, evidenciando que a média é influencidada por valores extremos. Ainda, destacam-se a mínima ser de 28 kg e a máxima de 175 kg. Diferentemente da altura, aqui, percebe-se haver uma maior dispersão dos valores de peso, isso porquê o desvio padrão aqui passa a ser de 16,26 kg e analisando seu coeficiente de variação em 22%, pela teoria, valores menores que 25% são considerados homogêneos, dessa forma, considerada homogênea mas próxima do limite teórico determinado.
