@@ -24,6 +24,20 @@ Para a análise buscou-se entender quais são os 3 medalhistas com maior número
 
 \begin{tabular}{l|rrr|r}
 \toprule
+\multirow{2}{*}{\textbf{Medalha}} & \multicolumn{3}{c|}{\textbf{Atletas}}                                              & \multicolumn{1}{l}{}               \\ \cline{2-4}
+                                  & \multicolumn{1}{l}{Michael Phelps} & \multicolumn{1}{l}{Ryan Lotche} & \multicolumn{1}{l|}{Natalie Coughlin} & \multicolumn{1}{l}{\textbf{Total}} \\ \midrule
+Ouro & 23 & 6 & 3 & 32 \\
+Prata & 3 & 3 & 4 & 10 \\
+Bronze & 2 & 5 & 3 & 10 \\ \midrule
+\textbf{Total} & 28 & 12 & 12 & 52 \\ \bottomrule
+\end{tabular}
+
+Frequência dos tipos de medalha dos 3 maiores medalhistas
+:::
+
+::: {#tbl-teste}
+\begin{tabular}{l|rrr|r}
+\toprule
 \multirow{2}{*}{\textbf{Atletas}} & \multicolumn{3}{c|}{\textbf{Medalha}}                                              & \multicolumn{1}{l}{}               \\ \cline{2-4}
                                   & \multicolumn{1}{l}{Ouro} & \multicolumn{1}{l}{Prata} & \multicolumn{1}{l|}{Bronze} & \multicolumn{1}{l}{\textbf{Total}} \\ \midrule
 Natalie Coughlin                  & 3                        & 4                         & 5                           & 12                                 \\
@@ -32,7 +46,6 @@ Ryan Lotche                       & 6                        & 3                
 \textbf{Total}                    & 32                       & 10                        & 10                          & 52                                 \\ \bottomrule
 \end{tabular}
 
-Frequência dos tipos de medalha dos 3 maiores medalhistas
 :::
 
 Através da @fig-top3-medalhas, nota-se que por haver diferenças marcantes da quantidade de medalhas de ouro do atleta dos Estados Unidos, Michael Phelps, em relação aos demais, pode-se sugerir que há uma aparente correlação visual entre as variáveis. Caso contrário, se as quantidades de medalhas fossem semelhantes entre os atletas, poderia-se supor que não há uma forte associação entre os atletas e os tipos de medalhas, porém não é esse o caso dos *Top* 3 medalhistas. Essa mesma percepção de correlação pode ser percebida nas frequências, se um atleta conquistar uma proporção muito maior de um tipo de medalhas em específico - muito mais ouros a exemplo - pode-se sugerir um caso de associação, esse é o caso da @fig-top3-medalhas, a qual Phelps e Ryan Lochte se destacam por uma proporção diferenciada de medalhas de ouro, evidenciando uma plausível correlação entre esses atletas e o tipo de medalha.

@@ -1,5 +1,5 @@
 ---
-title: "Projeto - Fantasma"
+title: "Análise de rendimento de atletas olímpicos"
 
 # Nome do documento PDF gerado
 output-file: projeto fantasma
@@ -296,7 +296,7 @@ Esta análise tem por objetivo comparar os valores do Índice de Massa Corporal 
     \label{medresum}
 \end{quadro}
 
-A partir do **Quadro 1** e da @fig-boxplot pode-se observar que o Judô tende a ter valores de IMC maiores que os demais por ter seus valores de centralidade - média e mediana - e de primeiro quartil maiores, o que significa que a maior parte dos dados possui valores acima dos outros esportes. Além disso, o Judô é o esporte que tem maior dispersão dos índices, percebido pelo maior coeficiente de variação e pelo intervalo interquartílico ser o maior, intervalo esse que é a distância entre o primeiro e o terceiro quartil - limite inferior e superior da caixa - bem como uma leve assimetria positiva, aquela que ocorre quando ocorre maior frequência de valores entre o primeiro quartil e a median. Ainda, ao observar os valores extremos, conclui-se que a ocorrência deles gera deslocamento da média para esses valores maiores.
+A partir do **Quadro 1** e da @fig-boxplot pode-se observar que o Judô tende a ter valores de IMC maiores que os demais por ter seus valores de centralidade - média e mediana - e de primeiro quartil maiores, o que significa que a maior parte dos dados possui valores acima dos outros esportes. Além disso, o Judô é o esporte que tem maior dispersão dos índices, percebido pelo maior coeficiente de variação e pelo intervalo interquartílico ser o maior, intervalo esse que é a distância entre o primeiro e o terceiro quartil - limite inferior e superior da caixa - bem como uma leve assimetria positiva, aquela que ocorre quando ocorre maior frequência de valores entre o primeiro quartil e a mediana. Ainda, ao observar os valores extremos, conclui-se que a ocorrência deles gera deslocamento da média para esses valores maiores.
 
 Para os outros esportes, analisar se existem tendências de IMCs menores fica menos nítido, como é no caso do Judô, uma vez que a Ginástica mesmo com menor média possui assimetria negativa, quando os valores se tornam mais frequentes entre a mediana e o terceiro quartil - limite superior da caixa - e uma média pouco afetada por valores extremos, bem como ter uma amplitude interquartílica maior se comparada ao Badminton e Futebol. Já para o Atletismo, seus valores de quartis, de mediana são maiores, ao mesmo tempo que possui assimetria positiva, logo maior concentração entre primeiro quartil e mediana, se aproximando da Ginástica que tinha mais concentração para cima da caixa e, ainda, contém significativa amplitude como é a Ginástica e seu valor médio é afetado pelos diversos *outliers* acima do máximo estipulado no gráfico. Dessa forma, embora a Ginástica conter o menor valor de média e mediana, dificulta-se a análise de que tende a ter os menores índices por ambos esportes terem uma notória dispersão dos dados, nota-se que é possível observar proximidade dos valores dos dois esportes, dificultando a identificação de qual seria o esporte com tendêcia de obter o menor índice.
 
@@ -311,12 +311,12 @@ Para a análise buscou-se entender quais são os 3 medalhistas com maior número
 ::: {#tbl-valores layout-align="center" tbl-pos="H"}
 \begin{tabular}{l|rrr|r}
 \toprule
-\multirow{2}{*}{\textbf{Atletas}} & \multicolumn{3}{c|}{\textbf{Medalha}}                                              & \multicolumn{1}{l}{}               \\ \cline{2-4}
-                                  & \multicolumn{1}{l}{Ouro} & \multicolumn{1}{l}{Prata} & \multicolumn{1}{l|}{Bronze} & \multicolumn{1}{l}{\textbf{Total}} \\ \midrule
-Natalie Coughlin                  & 3                        & 4                         & 5                           & 12                                 \\
-Michael Phelps                    & 23                       & 3                         & 2                           & 28                                 \\
-Ryan Lotche                       & 6                        & 3                         & 3                           & 12                                 \\ \midrule
-\textbf{Total}                    & 32                       & 10                        & 10                          & 52                                 \\ \bottomrule
+\multirow{2}{*}{\textbf{Medalha}} & \multicolumn{3}{c|}{\textbf{Atletas}}                                              & \multicolumn{1}{l}{}               \\ \cline{2-4}
+                                  & \multicolumn{1}{l}{Michael Phelps} & \multicolumn{1}{l}{Ryan Lotche} & \multicolumn{1}{l|}{Natalie Coughlin} & \multicolumn{1}{l}{\textbf{Total}} \\ \midrule
+Ouro & 23 & 6 & 3 & 32 \\
+Prata & 3 & 3 & 4 & 10 \\
+Bronze & 2 & 5 & 3 & 10 \\ \midrule
+\textbf{Total} & 28 & 12 & 12 & 52 \\ \bottomrule
 \end{tabular}
 
 Frequência dos tipos de medalha dos 3 maiores medalhistas
@@ -328,7 +328,7 @@ Por meio da @tbl-valores nota-se que Michael Phelps tem um valor altamente discr
 
 ## Variação Peso por Altura
 
-O intuito neste momento é entender a relação entre o peso e altura dos medalhistas olímpicos, isso quer dizer que se à medida que o peso aumenta, a altura também aumenta? Ou o contrário, ou não tem diferença, ou não dá pra inferir nada? Dessa forma, a fim de responder essas perguntas foram utilizadas a variável que armazena os pesos dos atletas em kilogramas e a que representa as alturas em centímetros - ambas as variáveis são classificadas como quantitativas contínuas - para que então serem realizadas as análises estatisticas. Diante desses dados, visando atingir este interesse, foram construídos os gráficos e os quadros a seguir.
+O intuito neste momento é entender a relação entre o peso e altura dos medalhistas olímpicos, isso quer dizer que se à medida que o peso aumenta, a altura também aumenta ou o contrário, ou não tem diferença. Dessa forma, a fim de responder essas perguntas foram utilizadas a variável que armazena os pesos dos atletas em quilogramas e a que representa as alturas em centímetros - ambas as variáveis são classificadas como quantitativas contínuas - para que então serem realizadas as análises estatisticas. Diante desses dados, visando atingir este interesse, foram construídos os gráficos e os quadros a seguir.
 
 ![Gráfico de dispersão do peso pela altura dos atletas](images/disp_uni_pesoaltura-05.png){#fig-disp fig-align="center" width="158mm"}
 
